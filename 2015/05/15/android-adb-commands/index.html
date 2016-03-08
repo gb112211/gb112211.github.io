@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android常用adb命令总结 | xuxu的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="针对移动端 Android 的测试， adb 命令是很重要的一个点，必须将常用的 adb 命令熟记于心， 将会为 Android 测试带来很大的方便，其中很多命令将会用于自动化测试的脚本当中。 
+Android Debug Bridgeadb 其实就是 Android Debug Bridge, Android 调试桥的缩写，adb 是一个 C/S 架构的命令行工具，主要由 3 部分组成：
+
+运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常用adb命令总结">
+<meta property="og:url" content="http://www.xuxu1988.com/2015/05/15/android-adb-commands/index.html">
+<meta property="og:site_name" content="xuxu的博客">
+<meta property="og:description" content="针对移动端 Android 的测试， adb 命令是很重要的一个点，必须将常用的 adb 命令熟记于心， 将会为 Android 测试带来很大的方便，其中很多命令将会用于自动化测试的脚本当中。 
+Android Debug Bridgeadb 其实就是 Android Debug Bridge, Android 调试桥的缩写，adb 是一个 C/S 架构的命令行工具，主要由 3 部分组成：
+
+运行">
+<meta property="og:image" content="http://y.photo.qq.com/img?s=g9WfMLxeD&l=y.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android常用adb命令总结">
+<meta name="twitter:description" content="针对移动端 Android 的测试， adb 命令是很重要的一个点，必须将常用的 adb 命令熟记于心， 将会为 Android 测试带来很大的方便，其中很多命令将会用于自动化测试的脚本当中。 
+Android Debug Bridgeadb 其实就是 Android Debug Bridge, Android 调试桥的缩写，adb 是一个 C/S 架构的命令行工具，主要由 3 部分组成：
+
+运行">
+  
+    <link rel="alternative" href="/atom.xml" title="xuxu的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="/head2.png" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">xuxu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>链接</li>
+						
+						
+						<li>关于</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/测试基础">测试基础</a></li>
+				        
+							<li><a href="/tags/自动化">自动化</a></li>
+				        
+							<li><a href="/tags/mobile">移动端</a></li>
+				        
+							<li><a href="/tags/其他">其他技术</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Instrumentation/" style="font-size: 10px;">Instrumentation</a><a href="/tags/Monkey/" style="font-size: 12.5px;">Monkey</a><a href="/tags/Roboletric/" style="font-size: 10px;">Roboletric</a><a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a><a href="/tags/git/" style="font-size: 10px;">git</a><a href="/tags/mobile/" style="font-size: 17.5px;">mobile</a><a href="/tags/其他/" style="font-size: 12.5px;">其他</a><a href="/tags/接口测试/" style="font-size: 12.5px;">接口测试</a><a href="/tags/测试基础/" style="font-size: 12.5px;">测试基础</a><a href="/tags/自动化/" style="font-size: 15px;">自动化</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://testerhome.com">TesterHome</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jianbing.github.io">煎饼的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">高分子专业出身，入坑做测试，热爱技术的一个Tester</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">xuxu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/head2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">xuxu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/测试基础">测试基础</a></li>
+		        
+					<li><a href="/tags/自动化">自动化</a></li>
+		        
+					<li><a href="/tags/mobile">移动端</a></li>
+		        
+					<li><a href="/tags/其他">其他技术</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-android-adb-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/15/android-adb-commands/" class="article-date">
+  	<time datetime="2015-05-15T11:27:13.000Z" itemprop="datePublished">2015-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android常用adb命令总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试基础/">测试基础</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android_Debug_Bridge"><span class="toc-number">1.</span> <span class="toc-text">Android Debug Bridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adb_命令"><span class="toc-number">2.</span> <span class="toc-text">adb 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adb_shell_命令"><span class="toc-number">3.</span> <span class="toc-text">adb shell 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pm"><span class="toc-number">3.1.</span> <span class="toc-text">pm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#am"><span class="toc-number">3.2.</span> <span class="toc-text">am</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input"><span class="toc-number">3.3.</span> <span class="toc-text">input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#screencap"><span class="toc-number">3.4.</span> <span class="toc-text">screencap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#screenrecord"><span class="toc-number">3.5.</span> <span class="toc-text">screenrecord</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uiautomator"><span class="toc-number">3.6.</span> <span class="toc-text">uiautomator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ime"><span class="toc-number">3.7.</span> <span class="toc-text">ime</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wm"><span class="toc-number">3.8.</span> <span class="toc-text">wm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#monkey"><span class="toc-number">3.9.</span> <span class="toc-text">monkey</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#settings"><span class="toc-number">3.10.</span> <span class="toc-text">settings</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dumpsys"><span class="toc-number">3.11.</span> <span class="toc-text">dumpsys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#log"><span class="toc-number">3.12.</span> <span class="toc-text">log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getprop"><span class="toc-number">3.13.</span> <span class="toc-text">getprop</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux_命令"><span class="toc-number">4.</span> <span class="toc-text">linux 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#END"><span class="toc-number">5.</span> <span class="toc-text">END</span></a></li></ol>
+          
+
+      </div>
+      
+        <p>针对移动端 Android 的测试， adb 命令是很重要的一个点，必须将常用的 adb 命令熟记于心， 将会为 Android 测试带来很大的方便，其中很多命令将会用于自动化测试的脚本当中。 </p>
+<h3 id="Android_Debug_Bridge">Android Debug Bridge</h3><p><code>adb</code> 其实就是 <code>Android Debug Bridge</code>, Android 调试桥的缩写，adb 是一个 <em>C/S</em> 架构的命令行工具，主要由 3 部分组成：</p>
+<ul>
+<li>运行在 PC 端的 Client : 可以通过它对 Android 应用进行安装、卸载及调试 <blockquote>
+<p>   Eclipse 中的 ADT、SDK Tools 目录下的 DDMS、Monitor 等工具，都是同样地用到了 adb 的功能来与 Android 设备进行交互。<br>PC 端的手机助手，诸如 360 手机助手、豌豆荚、应用宝等，其除了安装第三方应用方便，其他的功能，基本上都可以通过 adb 命令去完成，这里建议<code>测试人员</code>尽量不要在电脑上安装这类手机助手，因为其自带的 adb 程序可能会与 Android SDK 下的 adb 程序产生冲突，<code>5037</code> 端口被占用，导致使用 adb 命令时无法连接到设备</p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>运行在 PC 端的 Service : 其管理客户端到 Android 设备上 adb 后台进程的连接</p>
+<blockquote>
+<p>adb 服务启动后，Windows 可以在任务管理器中找到 adb.exe 这个进程</p>
+</blockquote>
+</li>
+<li><p>运行在 Android 设备上的 adb 后台进程</p>
+<blockquote>
+<p>执行 <code>adb shell ps | grep adbd</code> ，可以找到该后台进程，windows 请使用 <code>findstr</code> 替代 grep</p>
+</blockquote>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb <span class="literal">shell</span> <span class="built_in">ps</span> | grep adbd</span><br><span class="line"><span class="literal">root</span>      <span class="number">23227</span> <span class="number">1</span>     <span class="number">6672</span>   <span class="number">832</span>   ffffffff <span class="number">0001</span>9bb4 <span class="constant">S</span> /sbin/adbd</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里注意一个地方，就是 adb 使用的端口号，<code>5037</code>，有必要记一下<br>接下来我将 adb 命令分为三部分进行介绍，<code>adb 命令</code>、<code>adb shell 命令</code>、<code>linux 命令</code></p>
+<h3 id="adb_命令">adb 命令</h3><p>在开发或者测试的过程中，我们可以通过 adb 来管理多台设备，其一般的格式为：  </p>
+<pre><code>adb  [<span class="operator">-e</span> | <span class="operator">-d</span> | <span class="operator">-s</span> &lt;设备序列号&gt;] &lt;子命令&gt;
+</code></pre><p>在配好环境变量的前提下，在命令窗口当中输入 adb help 或者直接输入 adb ，将会列出所有的选项说明及子命令。</p>
+<p>这里介绍一些里面常用的命令：</p>
+<ul>
+<li><p>adb devices , 获取设备列表及设备状态  </p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb devices</span><br><span class="line"><span class="built_in">List</span> <span class="keyword">of</span> devices attached </span><br><span class="line"><span class="number">44</span>c826a0	device</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>adb get-state , 获取设备的状态 </p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb <span class="keyword">get</span>-state  </span><br><span class="line">device</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   设备的状态有 3 钟，<code>device</code> , <code>offline</code>  , <code>unknown</code><br>device：设备正常连接<br>offline：连接出现异常，设备无响应<br>unknown：没有连接设备 </p>
+</blockquote>
+</li>
+<li><p>adb kill-server , adb start-server , 结束 adb 服务， 启动 adb 服务，通常两个命令一起用  </p>
+<blockquote>
+<p>一般在连接出现异常，使用 adb devices 未正常列出设备， 设备状态异常时使用 kill-server，然后运行 start-server 进行重启服务</p>
+</blockquote>
+</li>
+<li><p>adb logcat , 打印 Android 的系统日志，这个可以单独拿出来讲</p>
+</li>
+<li><p>adb bugreport , 打印dumpsys、dumpstate、logcat的输出，也是用于分析错误  </p>
+<blockquote>
+<p>输出比较多，建议重定向到一个文件中  </p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb bugreport &gt; <span class="keyword">d</span>:\bugreport.<span class="literal">log</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>adb install , 安装应用，覆盖安装是使用 -r 选项</p>
+<blockquote>
+<p>windows 下如果需要安装含有中文名的 apk ，需要对 adb 进行修改，百度可以找到做出修改的adb , 支持中文命令的 apk，请自行搜索</p>
+</blockquote>
+</li>
+<li><p>adb uninstall , 卸载应用，后面跟的参数是<code>应用的包名</code>，请区别于 <code>apk 文件名</code>  </p>
+<blockquote>
+<p>‘-k’ means keep the data and cache directories , -k 选项，卸载时保存数据和缓存目录</p>
+</blockquote>
+</li>
+<li><p>adb pull , 将 Android 设备上的文件或者文件夹复制到本地<br>例如复制 Sdcard 下的 pull.txt 文件到 D 盘：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull sdcard/pull<span class="class">.txt</span> d:\</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   如果需要重命名为 rename.txt：</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull sdcard/pull.txt <span class="keyword">d</span>:\<span class="keyword">rename</span>.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   注意权限，复制系统权限的目录下的文件，需要 root ，并且一般的 Android 机 root 之后并不能使用命令去复制，而需要在手机上使用类似于 RE 的文件浏览器，先对系统的文件系统进行挂载为可读写后，才能在手机上复制移动系统文件，这里推荐使用小米手机的开发版本，IUNI 也是不错滴~~</p>
+</blockquote>
+</li>
+<li><p>adb push , 推送本地文件至 Android 设备<br>例如推送 D 盘下的 push.txt 至 Sdcard：  </p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">push</span> d:\<span class="keyword">push</span>.txt sdcard/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sdcard 后面的斜杠不能少，否则会出现下面的错误：</p>
+</blockquote>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb push push.txt sdcard</span><br><span class="line">failed <span class="keyword">to</span> <span class="keyword">copy</span> <span class="string">'push.txt'</span> <span class="keyword">to</span> <span class="string">'sdcard'</span>: <span class="keyword">Is</span> a directory</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>权限问题同 pull 命令</p>
+</blockquote>
+</li>
+<li><p>adb root , adb remount, 只针对类似小米开发版的手机有用，可以直接已这两个命令获取 root 权限，并挂载系统文件系统为可读写状态</p>
+</li>
+<li><p>adb reboot , 重启 Android 设备</p>
+<blockquote>
+<p>bootloader , 重启设备，进入 fastboot 模式，同 adb reboot-bootloader 命令<br>recovery , 重启设备，进入 recovery 模式，经常刷机的同学比较熟悉这个模式</p>
+</blockquote>
+</li>
+<li><p>adb forward , 将 宿主机上的某个端口重定向到设备的某个端口  </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb forward <span class="string">tcp:</span><span class="number">1314</span> <span class="string">tcp :</span><span class="number">8888</span></span><br></pre></td></tr></table></figure>
+<p>执行该命令后所有发往宿主机 1314 端口的消息、数据都会转发到 Android 设备的 8888 端口上，因此可以通过远程的方式控制 Android 设备。</p>
+</li>
+<li><p>adb connect 远程连接 Android 设备</p>
+<blockquote>
+<p>手机、PC处于相同的网络下，手机 root ，安装应用 adbWireless ，启动应用后点击界面中间的按钮：  </p>
+</blockquote>
+<p><img src="http://y.photo.qq.com/img?s=g9WfMLxeD&amp;l=y.jpg" alt="image"></p>
+<blockquote>
+<p>接着运行 <code>adb connect 192.168.1.102</code> , 即可通过无线的方式连接手机，缺点是速度比较慢</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="adb_shell_命令">adb shell 命令</h3><p>  有人问过我，为什么会知道这么多的命令，答案就是我比较爱折腾，这里大家先要了解我为什么要区分 adb 命令和 adb shell 命令  。<br>  简单点讲，adb 命令是 adb 这个程序自带的一些命令，而 adb shell 则是调用的 Android 系统中的命令，这些 Android 特有的命令都放在了 Android 设备的 system/bin 目录下，例如我再命令行中敲这样一个命令：  </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">xuxu:</span>~]$ adb shell hehe</span><br><span class="line"><span class="regexp">/system/</span>bin/<span class="string">sh:</span> <span class="string">hehe:</span> not found</span><br></pre></td></tr></table></figure>
+<p> 很明显，在 bin 目录下并不存在这个命令。<br> 自己爱折腾，想看看有哪些命令，也不想去找文档，于是就启动模拟器，将整个 <code>system/bin</code> 目录复制了出来，然后一个一个的去试。。囧~~<br> 打开这些文件就可以发现，里面有些命令其实是一个 shell 脚本，例如打开 monkey 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Script to start "monkey" on the device, which has a very rudimentary</span></span><br><span class="line"><span class="comment"># shell.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base=/system</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$base</span>/framework/monkey.jar</span><br><span class="line"><span class="built_in">trap</span> <span class="string">""</span> HUP</span><br><span class="line"><span class="built_in">exec</span> app_process <span class="variable">$base</span>/bin com.android.commands.monkey.Monkey $*</span><br></pre></td></tr></table></figure>
+<p>再比如打开 am：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/system/bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Script to start "am" on the device, which has a very rudimentary</span></span><br><span class="line"><span class="comment"># shell.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base=/system</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$base</span>/framework/am.jar</span><br><span class="line"><span class="built_in">exec</span> app_process <span class="variable">$base</span>/bin com.android.commands.am.Am <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure>
+<p>还有 SDK sources/android-20/com/android/commands 目录下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">xuxu:</span>...oid-<span class="number">20</span><span class="regexp">/com/</span>android/commands]$ pwd</span><br><span class="line"><span class="regexp">/Users/</span>xuxu<span class="regexp">/utils/</span>android<span class="regexp">/android-sdk-macosx/</span>sources<span class="regexp">/android-20/</span>com<span class="regexp">/android/</span>commands</span><br><span class="line">[<span class="string">xuxu:</span>...oid-<span class="number">20</span><span class="regexp">/com/</span>android/commands]$ ll   </span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> am</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> bmgr</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> bu</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> content</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> ime</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> input</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> media</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> pm</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> requestsync</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> settings</span><br><span class="line">drwxr-xr-x  <span class="number">7</span> xuxu  staff   <span class="number">238</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> svc</span><br><span class="line">drwxr-xr-x  <span class="number">6</span> xuxu  staff   <span class="number">204</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> uiautomator</span><br><span class="line">drwxr-xr-x  <span class="number">3</span> xuxu  staff   <span class="number">102</span>B  <span class="number">4</span>  <span class="number">2</span> <span class="number">10</span>:<span class="number">57</span> wm</span><br></pre></td></tr></table></figure>
+<p>有没有熟悉的命令？ am 、pm、uiautomator …</p>
+<p>下面介绍一些常用的 adb shell 命令 （其中pm、am 命令比较庞大，使用四级标题）</p>
+<h4 id="pm">pm</h4><p>Package Manager , 可以用获取到一些安装在 Android 设备上得应用信息<br>pm 的源码 <a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.2_r1/com/android/commands/pm/Pm.java#Pm" target="_blank" rel="external">Pm.java</a> , 直接运行 adb shell pm 可以获取到该命令的帮助信息</p>
+<ul>
+<li><p>pm list package 列出安装在设备上的应用  </p>
+<blockquote>
+<p>   不带任何选项：列出所有的应用的包名（不知道怎么找应用的包名的同学看这里）  </p>
+</blockquote>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="literal">shell</span> pm list <span class="keyword">package</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   -s：列出系统应用</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> pm <span class="keyword">list</span> package -<span class="literal">s</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   -3：列出第三方应用</p>
+</blockquote>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="literal">shell</span> pm list <span class="keyword">package</span> -<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   -f：列出应用包名及对应的apk名及存放位置</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> pm <span class="keyword">list</span> package -<span class="literal">f</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   -i：列出应用包名及其安装来源，结果显示例子：<br><code>package:com.zhihu.android  installer=com.xiaomi.market</code></p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> pm <span class="keyword">list</span> package -<span class="literal">i</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   命令最后增加 FILTER：过滤关键字，可以很方便地查找自己想要的应用  </p>
+</blockquote>
+<p> 参数组合使用，例如，查找三方应用中<code>知乎</code>的包名、apk存放位置、安装来源：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell pm list package -f -<span class="number">3</span> -<span class="tag">i</span> zhihu</span><br><span class="line">package:/data/app/com<span class="class">.zhihu</span><span class="class">.android-1</span><span class="class">.apk</span>=com<span class="class">.zhihu</span><span class="class">.android</span>  installer=com<span class="class">.xiaomi</span><span class="class">.market</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pm path 列出对应包名的 .apk 位置</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell pm path com<span class="class">.tencent</span><span class="class">.mobileqq</span></span><br><span class="line">package:/data/app/com<span class="class">.tencent</span><span class="class">.mobileqq-1</span><span class="class">.apk</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pm list instrumentation , 列出含有单元测试 case 的应用，后面可跟参数 -f （与 pm list package 中一样），以及 [TARGET-PACKAGE]</p>
+</li>
+<li><p>pm dump , 后跟包名，列出指定应用的 dump 信息，里面有各种信息，自行查看</p>
+<p><code>adb shell pm dump com.tencent.mobileqq</code></p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Packages:</span><br><span class="line">Package [com.tencent.mobileqq] (<span class="number">4397</span>f810):</span><br><span class="line"><span class="variable">userId=</span><span class="number">10091</span> <span class="variable">gids=</span>[<span class="number">3003</span>, <span class="number">3002</span>, <span class="number">3001</span>, <span class="number">1028</span>, <span class="number">1015</span>]</span><br><span class="line"><span class="variable">pkg=</span>Package&#123;<span class="number">43851660</span> com.tencent.mobileqq&#125;</span><br><span class="line"><span class="variable">codePath=</span>/data/app/com.tencent.mobileqq-<span class="number">1</span>.apk</span><br><span class="line"><span class="variable">resourcePath=</span>/data/app/com.tencent.mobileqq-<span class="number">1</span>.apk</span><br><span class="line"><span class="variable">nativeLibraryPath=</span>/data/app-lib/com.tencent.mobileqq-<span class="number">1</span></span><br><span class="line"><span class="variable">versionCode=</span><span class="number">242</span> <span class="variable">targetSdk=</span><span class="number">9</span></span><br><span class="line"><span class="variable">versionName=</span><span class="number">5.6</span>.<span class="number">0</span></span><br><span class="line"><span class="variable">applicationInfo=</span>ApplicationInfo&#123;<span class="number">43842</span>cc8 com.tencent.mobileqq&#125;</span><br><span class="line"><span class="variable">flags=</span>[ HAS_CODE ALLOW_CLEAR_USER_DATA ]</span><br><span class="line"><span class="variable">dataDir=</span>/data/data/com.tencent.mobileqq</span><br><span class="line"><span class="variable">supportsScreens=</span>[small, medium, large, xlarge, resizeable, anyDensity]</span><br><span class="line">usesOptionalLibraries:</span><br><span class="line">com.google.android.media.effects</span><br><span class="line">com.motorola.hardware.frontcamera</span><br><span class="line"><span class="variable">timeStamp=</span><span class="number">2015</span>-<span class="number">05</span>-<span class="number">13</span> <span class="number">14</span>:<span class="number">04</span>:<span class="number">24</span></span><br><span class="line"><span class="variable">firstInstallTime=</span><span class="number">2015</span>-<span class="number">04</span>-<span class="number">03</span> <span class="number">20</span>:<span class="number">50</span>:<span class="number">07</span></span><br><span class="line"><span class="variable">lastUpdateTime=</span><span class="number">2015</span>-<span class="number">05</span>-<span class="number">13</span> <span class="number">14</span>:<span class="number">05</span>:<span class="number">02</span></span><br><span class="line"><span class="variable">installerPackageName=</span>com.xiaomi.market</span><br><span class="line"><span class="variable">signatures=</span>PackageSignatures&#123;<span class="number">4397</span>f8d8 [<span class="number">43980488</span>]&#125;</span><br><span class="line"><span class="variable">permissionsFixed=</span><span class="constant">true</span> <span class="variable">haveGids=</span><span class="constant">true</span> <span class="variable">installStatus=</span><span class="number">1</span></span><br><span class="line"><span class="variable">pkgFlags=</span>[ HAS_CODE ALLOW_CLEAR_USER_DATA ]</span><br><span class="line">User <span class="number">0</span>:  <span class="variable">installed=</span><span class="constant">true</span> <span class="variable">blocked=</span><span class="constant">false</span> <span class="variable">stopped=</span><span class="constant">false</span> <span class="variable">notLaunched=</span><span class="constant">false</span> <span class="variable">enabled=</span><span class="number">0</span></span><br><span class="line">grantedPermissions:</span><br><span class="line">android.permission.CHANGE_WIFI_MULTICAST_STATE</span><br><span class="line">com.tencent.qav.permission.broadcast</span><br><span class="line">com.tencent.photos.permission.DATA</span><br><span class="line">com.tencent.wifisdk.permission.disconnect</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pm install , 安装应用</p>
+<blockquote>
+<p>   目标 apk 存放于 PC 端，请用 adb install 安装<br>目标 apk 存放于 Android 设备上，请用 pm install 安装 </p>
+</blockquote>
+</li>
+<li><p>pm uninstall , 卸载应用，同 adb uninstall , 后面跟的参数都是应用的包名</p>
+</li>
+<li><p>pm clear , 清除应用数据</p>
+</li>
+<li><p>pm set-install-location , pm get-install-location , 设置应用安装位置，获取应用安装位置</p>
+<blockquote>
+<p>   [0/auto]：默认为自动<br>   [1/internal]：默认为安装在手机内部<br>   [2/external]：默认安装在外部存储  </p>
+</blockquote>
+</li>
+</ul>
+<h4 id="am">am</h4><p>又是一个庞大的命令。。。<br>am 源码 <a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/am/Am.java#Am" target="_blank" rel="external">Am.java</a></p>
+<ul>
+<li><p>am start , 启动一个 Activity，已启动系统相机应用为例</p>
+<blockquote>
+<p>   启动相机</p>
+</blockquote>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell am start -n <span class="keyword">com</span>.android.camera/.Camera</span><br><span class="line"><span class="label">Starting:</span> Intent &#123; cmp=<span class="keyword">com</span>.android.camera/.Camera &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   先停止目标应用，再启动</p>
+</blockquote>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell am start -S <span class="keyword">com</span>.android.camera/.Camera</span><br><span class="line"><span class="label">Stopping:</span> <span class="keyword">com</span>.android.camera</span><br><span class="line"><span class="label">Starting:</span> Intent &#123; act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER]     cmp=<span class="keyword">com</span>.android.camera/.Camera &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   等待应用完成启动</p>
+</blockquote>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell am start -W <span class="keyword">com</span>.android.camera/.Camera</span><br><span class="line"><span class="label">Starting:</span> Intent &#123; act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=<span class="keyword">com</span>.android.camera/.Camera &#125;</span><br><span class="line"><span class="label">Status:</span> ok</span><br><span class="line"><span class="label">Activity:</span> <span class="keyword">com</span>.android.camera/.Camera</span><br><span class="line"><span class="label">ThisTime:</span> <span class="number">500</span></span><br><span class="line"><span class="label">TotalTime:</span> <span class="number">500</span></span><br><span class="line">Complete</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   启动默认浏览器打开一个网页</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">xuxu:</span>~]$ adb shell am start -a android.intent.action.VIEW -d <span class="string">http:</span><span class="comment">//testerhome.com</span></span><br><span class="line"><span class="string">Starting:</span> Intent &#123; act=android.intent.action.VIEW dat=<span class="string">http:</span><span class="comment">//testerhome.com &#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   启动拨号器拨打 10086</p>
+</blockquote>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell am start -a android.<span class="type">intent</span>.<span class="keyword">action</span>.<span class="keyword">CALL</span> -d tel:<span class="number">10086</span>            </span><br><span class="line">Starting: <span class="type">Intent</span> &#123; act=android.<span class="type">intent</span>.<span class="keyword">action</span>.<span class="keyword">CALL</span> dat=tel:xxxxx &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>am instrument , 启动一个 instrumentation , 单元测试或者 Robotium 会用到</p>
+</li>
+<li><p>am monitor , 监控 crash 与 ANR</p>
+</li>
+<li><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">[</span>xuxu:~]$ adb shell am<span class="instruction"> monitor</span><br><span class="line"></span>Monitoring activity manager...  available commands:</span><br><span class="line">(q<span class="function">)</span>uit: finish monitoring</span><br><span class="line">** Activity starting: com.android.camera</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>am force-stop , 后跟包名，结束应用</p>
+</li>
+<li><p>am startservice , 启动一个服务</p>
+</li>
+<li><p>am broadcast , 发送一个广播</p>
+</li>
+</ul>
+<p>还有很多的选项，自己多多发掘~~</p>
+<h4 id="input">input</h4><p>这个命令可以向 Android 设备发送按键事件，其源码 <a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/input/Input.java#Input" target="_blank" rel="external">Input.java</a>  </p>
+<ul>
+<li><p>input text , 发送文本内容，不能发送中文</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="built_in">shell</span> input <span class="keyword">text</span> test123456</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   前提先将键盘设置为英文键盘</p>
+</blockquote>
+</li>
+<li><p>input keyevent , 发送按键事件，<a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/android/view/KeyEvent.java#KeyEvent" target="_blank" rel="external">KeyEvent.java</a>  </p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> <span class="keyword">input</span> keyevent KEYCODE_HOME</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   模拟按下 Home 键 ，源码里面有定义：<br>   public static final int KEYCODE_HOME = 3;<br>   因此可以将命令中的 <code>KEYCODE_HOME</code> 替换为 <code>3</code></p>
+</blockquote>
+</li>
+<li><p>input tap , 对屏幕发送一个触摸事件</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> <span class="keyword">input</span> tap 500 500</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   点击屏幕上坐标为 500 500 的位置</p>
+</blockquote>
+</li>
+<li><p>input swipe , 滑动事件</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> <span class="keyword">input</span> swipe 900 500 100 500</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   从右往左滑动屏幕<br>   如果版本不低于 4.4 , 可以模拟长按事件</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> <span class="keyword">input</span> swipe 500 500 501 501 2000</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   其实就是在小的距离内，在较长的持续时间内进行滑动，最后表现出来的结果就是长按动作</p>
+</blockquote>
+</li>
+</ul>
+<p>到这里会发现，MonkeyRunner 能做到的事情，通过 adb 命令都可以做得到，如果进行封装，会比 MR 做得更好。</p>
+<h4 id="screencap">screencap</h4><p>截图命令  </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap -<span class="tag">p</span> /sdcard/screen.png</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   截屏，保存至 sdcard 目录</p>
+</blockquote>
+<h4 id="screenrecord">screenrecord</h4><p> 4.4 新增的录制命令<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord sdcard/<span class="type">record</span>.mp4</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>   执行命令后操作手机，ctrl + c 结束录制，录制结果保存至 sdcard </p>
+</blockquote>
+<h4 id="uiautomator">uiautomator</h4><p>执行 UI automation tests ， 获取当前界面的控件信息</p>
+<blockquote>
+<p>   runtest：executes UI automation tests  <a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/uiautomator/RunTestCommand.java#RunTestCommand" target="_blank" rel="external">RunTestCommand.java</a><br>      dump：获取控件信息，<a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/uiautomator/DumpCommand.java#DumpCommand" target="_blank" rel="external">DumpCommand.java</a>  </p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">xuxu:</span>~]$ adb shell uiautomator dump   </span><br><span class="line">UI hierchary dumped <span class="string">to:</span> <span class="regexp">/storage/</span>emulated<span class="regexp">/legacy/</span>window_dump.xml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   不加 [file] 选项时，默认存放在 sdcard 下</p>
+</blockquote>
+<h4 id="ime">ime</h4><p>输入法，<a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/ime/Ime.java#Ime" target="_blank" rel="external">Ime.java</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell ime list -s                           </span><br><span class="line">com<span class="class">.google</span><span class="class">.android</span><span class="class">.inputmethod</span><span class="class">.pinyin</span>/<span class="class">.PinyinIME</span></span><br><span class="line">com<span class="class">.baidu</span><span class="class">.input_mi</span>/.ImeService</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   列出设备上的输入法</p>
+</blockquote>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb shell ime <span class="type">set</span> com.baidu.input_mi/.<span class="type">ImeService</span></span><br><span class="line"><span class="type">Input</span> <span class="keyword">method</span> com.baidu.input_mi/.<span class="type">ImeService</span> selected</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   选择输入法</p>
+</blockquote>
+<h4 id="wm">wm</h4><p><a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.4_r1/com/android/commands/wm/Wm.java#Wm" target="_blank" rel="external">Wm.java</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[xuxu:~]</span>$ <span class="tag">adb</span> <span class="tag">shell</span> <span class="tag">wm</span> <span class="tag">size</span></span><br><span class="line"><span class="tag">Physical</span> <span class="rule"><span class="attribute">size</span>:<span class="value"> <span class="number">1080</span>x1920</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   获取设备分辨率</p>
+</blockquote>
+<h4 id="monkey">monkey</h4><p>请参考 <a href="http://xuxu1988.com/2015/05/13/2015-05-02-Monkey/" target="_blank" rel="external">Android Monkey 的用法</a></p>
+<h4 id="settings">settings</h4><p><a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android-apps/4.4.4_r1/com/android/settings/Settings.java#Settings" target="_blank" rel="external">Settings.java</a>，请参考 <a href="http://testerhome.com/topics/1993" target="_blank" rel="external">探究下 Android4.2 中新增的 settings 命令</a></p>
+<h4 id="dumpsys">dumpsys</h4><p>请参考 <a href="http://testerhome.com/topics/1462" target="_blank" rel="external">android 中 dumpsys 命令使用</a></p>
+<h4 id="log">log</h4><p>这个命令很有意思，可以在 logcat 里面打印你设定的信息，具体用途自己思考！</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span> <span class="keyword">log</span> -p <span class="keyword">d</span> -t xuxu <span class="string">"test adb shell log"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   -p：优先级，-t：tag，标签，后面加上 message</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[xuxu:~]$ adb logcat -v time -s xuxu               </span><br><span class="line">--------- beginning of /dev/<span class="keyword">log</span>/system</span><br><span class="line">--------- beginning of /dev/<span class="keyword">log</span>/main</span><br><span class="line">05-15 13:57:10.286 <span class="keyword">D</span>/xuxu    (12646): <span class="keyword">test</span> adb <span class="keyword">shell</span> <span class="literal">log</span></span><br></pre></td></tr></table></figure>
+<h4 id="getprop">getprop</h4><p>查看 Android 设备的参数信息，只运行 <code>adb shell getprop</code>，结果以 <code>key : value</code> 键值对的形式显示，如要获取某个 key 的值：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop ro<span class="class">.build</span><span class="class">.version</span><span class="class">.sdk</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   获取设备的 sdk 版本</p>
+</blockquote>
+<h3 id="linux_命令">linux 命令</h3><p>操作你的 Android 设备，常用到的命令，只列出，不详解！</p>
+<p>cat、cd、chmod、cp、date、df、du、grep、kill、ln、ls、lsof、netstat、ping、ps、rm、rmdir、top、touch、重定向符号 “&gt;” “&gt;&gt;”、管道 “|”</p>
+<blockquote>
+<p>   有些可能需要使用 busybox ，另外建议 windows 下 安装一个 <code>Cygwin</code> , 没用过的请百度百科 <a href="http://baike.baidu.com/link?url=NatnFuanrdGKgYFGyMvMT_T86-r5ETnVJd8HH6G3jPSj46QosKYAfUO3RafthymAiubSFAafN558p_lMqpJOua" target="_blank" rel="external">Cygwin</a></p>
+</blockquote>
+<h3 id="END">END</h3><p>补充一个引号的用途：<br>场景1、在 PC 端执行 monkey 命令，将信息保存至 D 盘 monkey.log，会这么写：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -<span class="tag">p</span> com<span class="class">.android</span><span class="class">.settings</span> <span class="number">5000</span> &gt; d:\monkey.log</span><br></pre></td></tr></table></figure>
+<p>场景2、在 PC 端执行 monkey 命令，将信息保存至手机的 Sdcard，可能会这么写：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -<span class="tag">p</span> com<span class="class">.android</span><span class="class">.settings</span> <span class="number">5000</span> &gt; sdcard/monkey.log</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   这里肯定会报错，因为最终是写向了 PC 端当前目录的 sdcard 目录下，而非写向手机的 Sdcard  </p>
+</blockquote>
+<p>这里需要用上引号：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="built_in">shell</span> <span class="string">"monkey -p com.android.settings 5000 &gt; sdcard/monkey.log"</span></span><br></pre></td></tr></table></figure>
+<p>对这些命令都熟悉之后，那么接下来就是综合对编程语言的应用，思考如何用语言去处理这些命令，使得这些命令更加的方便于测试工作。</p>
+<p>所以个人<a href="https://github.com/gb112211" target="_blank" rel="external"> github </a> 上的几个工具，核心都是 adb 命令，关键的地方在于怎么用自己所学的语言去处理这些命令。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/16/config-my-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用shell脚本将博客同时提交至github和gitcafe
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/14/2015-05-02-Instrumentation01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Instrumentation简介</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-adb-commands" data-title="Android常用adb命令总结" data-url="http://www.xuxu1988.com/2015/05/15/android-adb-commands/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xuxu1988"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 xuxu
+    	</div>
+      	<div class="footer-right">
+            <a href="http://www.kuaidiwo.cn/" target="_blank" >快递查询</a>
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+<div class="visit">
+
+            
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1254926852'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254926852%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+        </div>
+
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:22px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+
+<!-- 搜索框
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','6aJ19BsxER7cB4nYeaxp','2.0.0');
+</script>
+-->
+
+<!-- 将markdown里面的超链接在新窗口中打开 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+	    //为超链接加上target='_blank'属性
+		$('a[href^="http"]').each(function() {
+			$(this).attr('target', '_blank');
+		});
+	});
+</script>
+  </div>
+</body>
+</html>
+
+<!-- github fork me
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+-->

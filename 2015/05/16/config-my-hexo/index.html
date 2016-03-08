@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用shell脚本将博客同时提交至github和gitcafe | xuxu的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="由于 github 的访问速度比较慢，所以也选择了跟很多同学一样，选择了同时将 blog 部署至 github 和 gitcafe。因此在写完博客之后需要执行 hexo d 命令，将博客分别提交至 github 和 gitcafe，怎么去方便快速的提交？后面给出一个解决方法，另外也会给出一个快速创建 blog 并打开该 md 文件的方法！这里的前提是已经搭建好自己的博客，并会使用命令进行博客的创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用shell脚本将博客同时提交至github和gitcafe">
+<meta property="og:url" content="http://www.xuxu1988.com/2015/05/16/config-my-hexo/index.html">
+<meta property="og:site_name" content="xuxu的博客">
+<meta property="og:description" content="由于 github 的访问速度比较慢，所以也选择了跟很多同学一样，选择了同时将 blog 部署至 github 和 gitcafe。因此在写完博客之后需要执行 hexo d 命令，将博客分别提交至 github 和 gitcafe，怎么去方便快速的提交？后面给出一个解决方法，另外也会给出一个快速创建 blog 并打开该 md 文件的方法！这里的前提是已经搭建好自己的博客，并会使用命令进行博客的创建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用shell脚本将博客同时提交至github和gitcafe">
+<meta name="twitter:description" content="由于 github 的访问速度比较慢，所以也选择了跟很多同学一样，选择了同时将 blog 部署至 github 和 gitcafe。因此在写完博客之后需要执行 hexo d 命令，将博客分别提交至 github 和 gitcafe，怎么去方便快速的提交？后面给出一个解决方法，另外也会给出一个快速创建 blog 并打开该 md 文件的方法！这里的前提是已经搭建好自己的博客，并会使用命令进行博客的创建">
+  
+    <link rel="alternative" href="/atom.xml" title="xuxu的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="/head2.png" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">xuxu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>链接</li>
+						
+						
+						<li>关于</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/测试基础">测试基础</a></li>
+				        
+							<li><a href="/tags/自动化">自动化</a></li>
+				        
+							<li><a href="/tags/mobile">移动端</a></li>
+				        
+							<li><a href="/tags/其他">其他技术</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Instrumentation/" style="font-size: 10px;">Instrumentation</a><a href="/tags/Monkey/" style="font-size: 12.5px;">Monkey</a><a href="/tags/Roboletric/" style="font-size: 10px;">Roboletric</a><a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a><a href="/tags/git/" style="font-size: 10px;">git</a><a href="/tags/mobile/" style="font-size: 17.5px;">mobile</a><a href="/tags/其他/" style="font-size: 12.5px;">其他</a><a href="/tags/接口测试/" style="font-size: 12.5px;">接口测试</a><a href="/tags/测试基础/" style="font-size: 12.5px;">测试基础</a><a href="/tags/自动化/" style="font-size: 15px;">自动化</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://testerhome.com">TesterHome</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jianbing.github.io">煎饼的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">高分子专业出身，入坑做测试，热爱技术的一个Tester</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">xuxu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/head2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">xuxu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/测试基础">测试基础</a></li>
+		        
+					<li><a href="/tags/自动化">自动化</a></li>
+		        
+					<li><a href="/tags/mobile">移动端</a></li>
+		        
+					<li><a href="/tags/其他">其他技术</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-config-my-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/16/config-my-hexo/" class="article-date">
+  	<time datetime="2015-05-15T19:06:04.000Z" itemprop="datePublished">2015-05-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用shell脚本将博客同时提交至github和gitcafe
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>由于 github 的访问速度比较慢，所以也选择了跟很多同学一样，选择了同时将 blog 部署至 github 和 gitcafe。<br>因此在写完博客之后需要执行 <code>hexo d</code> 命令，将博客分别提交至 github 和 gitcafe，怎么去方便快速的提交？后面给出一个解决方法，另外也会给出一个快速创建 blog 并打开该 md 文件的方法！<br>这里的前提是已经搭建好自己的博客，并会使用命令进行博客的创建、提交等等。。<br>下面进入正题<br><a id="more"></a></p>
+<h3 id="同时提交至_github_与_gitcafe">同时提交至 github 与 gitcafe</h3><ul>
+<li><p>这里假设你的博客根目录为 hexo，先确保该目录下的 <code>_config.yml</code> 文件的最后一行的内容为 <code>type: git</code><br>这里贴出最后几行的内容：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#  <span class="string">Docs:</span> <span class="string">http:</span><span class="comment">//hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="string">deploy:</span></span><br><span class="line"><span class="label">  type:</span> git</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   这里我没将 github 或者 gitcafe 的地址配进去，而是放在了后面的 shell 脚本当中</p>
+</blockquote>
+</li>
+<li><p>我的 gitcafe 仓库：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">repo:</span> <span class="string">https:</span><span class="comment">//gitcafe.com/xuxu1988/xuxu1988.git</span></span><br><span class="line"><span class="string">branch:</span> gitcafe-pages</span><br></pre></td></tr></table></figure>
+<p>github 仓库：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">repo:</span> <span class="string">https:</span><span class="comment">//github.com/gb112211/gb112211.github.io.git</span></span><br><span class="line"><span class="string">branch:</span> master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正常配置是将上面的仓库地址配在 <code>type: git</code> 的后面，这样才能提交，很笨的方法是先配置 github 的地址，提交后再将地址替换为 gitcafe的，接在再提交，相当于提交 2 次，可以想象，相当的累人</p>
+</li>
+<li><p>笨方法虽然手工的去执行，会很麻烦，但业务逻辑确实是如此，接下来通过 shell 脚本完成该功能，那么提交起来就相当的方便而且快速，这里直接将脚本 commit.sh 贴出（用的 Mac 环境）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交至 gitcafe</span></span><br><span class="line"><span class="comment">#先将gitcafe 的地址追加到 _config.yml 的末尾，注意空格</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"  repo: https://gitcafe.com/xuxu1988/xuxu1988.git"</span> &gt;&gt; _config.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"  branch: gitcafe-pages"</span> &gt;&gt; _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除gitcafe配置</span></span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'$d'</span> _config.yml</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'$d'</span> _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交至github</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"  repo: https://github.com/gb112211/gb112211.github.io.git"</span> &gt;&gt; _config.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"  branch: master"</span> &gt;&gt; _config.yml</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除github配置</span></span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'$d'</span> _config.yml</span><br><span class="line">sed -i <span class="string">''</span> <span class="string">'$d'</span> _config.yml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   流程相当的简单，linux 下的话，sed 命令的 -i 选项后面应该不需要 <code>&#39;&#39;</code>，两个单引号，Mac 环境的按脚本中的格式写</p>
+</blockquote>
+</li>
+<li><p>脚本写好之后，执行 <code>chmod +x commit.sh</code>，赋予可执行的权限后就可以以 <code>./commit.sh</code> 的方式提交博客了</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">xuxu:</span><span class="regexp">~/blog/</span>hexo]$ ./commit.sh</span><br><span class="line">INFO  Files loaded <span class="keyword">in</span> <span class="number">1.6</span> s</span><br><span class="line">INFO  <span class="string">Generated:</span> baidu_verify_0ZcfvtBusx.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">16</span><span class="regexp">/config-my-hexo/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">15</span><span class="regexp">/android-adb-commands/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">14</span><span class="regexp">/2015-05-02-Instrumentation01/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">14</span><span class="regexp">/2015-05-02-Monkey/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">13</span><span class="regexp">/2015-05-02-Android-Tree/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2015</span><span class="regexp">/05/</span><span class="number">12</span><span class="regexp">/2015-05-02-MeiYiBu-XuXiaofeng/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives/index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives<span class="regexp">/2015/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives<span class="regexp">/2015/</span><span class="number">05</span>/index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/其他/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/Android/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/测试基础/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/Monkey/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/粤语歌曲/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/Instrumentation/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> tags<span class="regexp">/自动化/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> categories<span class="regexp">/技术/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> categories<span class="regexp">/音乐/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> sitemap.xml</span><br><span class="line">INFO  <span class="string">Generated:</span> atom.xml</span><br><span class="line">INFO  <span class="number">22</span> files generated <span class="keyword">in</span> <span class="number">333</span> ms</span><br><span class="line">INFO  <span class="string">Deploying:</span> git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from <span class="keyword">public</span> folder...</span><br><span class="line">[master <span class="number">1</span>f2fbc6] Site <span class="string">updated:</span> <span class="number">2015</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">13</span>:<span class="number">53</span>:<span class="number">58</span></span><br><span class="line"> <span class="number">9</span> files changed, <span class="number">16</span> insertions(+), <span class="number">16</span> deletions(-)</span><br><span class="line">To <span class="string">https:</span><span class="comment">//gitcafe.com/xuxu1988/xuxu1988.git</span></span><br><span class="line">   <span class="number">283</span>f9fd..<span class="number">1</span>f2fbc6  master -&gt; gitcafe-pages</span><br><span class="line">Branch master set up to track remote branch gitcafe-pages from <span class="string">https:</span><span class="comment">//gitcafe.com/xuxu1988/xuxu1988.git.</span></span><br><span class="line">INFO  Deploy <span class="string">done:</span> git</span><br><span class="line">INFO  <span class="string">Deploying:</span> git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from <span class="keyword">public</span> folder...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">To <span class="string">https:</span><span class="comment">//github.com/gb112211/gb112211.github.io.git</span></span><br><span class="line">   <span class="number">283</span>f9fd..<span class="number">1</span>f2fbc6  master -&gt; master</span><br><span class="line">Branch master set up to track remote branch master from <span class="string">https:</span><span class="comment">//github.com/gb112211/gb112211.github.io.git.</span></span><br><span class="line">INFO  Deploy <span class="string">done:</span> git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="快速创建并打开_md_文档">快速创建并打开 md 文档</h3><p>通常我们用 <code>hexo new my-blog</code> 这条命令去创建 md 文档，然后再进到 <code>source/_posts</code> 目录下去打开刚创建的 md 文档进行编辑，也是有点麻烦，这里同样运用 shell 脚本处理，在创建的好 md 文档之后就使用指定的应用程序打开该文档</p>
+<ul>
+<li><p>使用 hexo new 命令创建博客后，使用 Mou.app 打开创建好的 md 文档，脚本 <code>new.she</code> 的内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#文件名</span></span><br><span class="line">filename=<span class="variable">$@</span></span><br><span class="line">file=./<span class="built_in">source</span>/_posts/<span class="variable">$filename</span>.md</span><br><span class="line"></span><br><span class="line"><span class="comment">#判断是否已经存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! <span class="operator">-e</span> <span class="string">"<span class="variable">$file</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="comment">#不存在则新建博客并用Mou打开</span></span><br><span class="line">    hexo new <span class="variable">$filename</span></span><br><span class="line">    open <span class="operator">-a</span> /Applications/Mou.app <span class="variable">$file</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment">#存在则提示博客名已经存在</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"This blog already exists!"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   new.sh 接收一个参数作为博客名</p>
+</blockquote>
+</li>
+<li>脚本完成之后，同样地执行 <code>chmod +x new.sh</code>， 然后执行脚本 <code>./new.sh  my-blog</code>，如果不存在，就会创建博客，并使用 Mou.app 这个应用程序打开 my-blog.md 这个文档</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/20/android-get-activity/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android测试中获取包名、Activity的方法总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/15/android-adb-commands/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android常用adb命令总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="config-my-hexo" data-title="使用shell脚本将博客同时提交至github和gitcafe" data-url="http://www.xuxu1988.com/2015/05/16/config-my-hexo/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xuxu1988"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 xuxu
+    	</div>
+      	<div class="footer-right">
+            <a href="http://www.kuaidiwo.cn/" target="_blank" >快递查询</a>
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+<div class="visit">
+
+            
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1254926852'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254926852%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+        </div>
+
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:22px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+
+<!-- 搜索框
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','6aJ19BsxER7cB4nYeaxp','2.0.0');
+</script>
+-->
+
+<!-- 将markdown里面的超链接在新窗口中打开 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+	    //为超链接加上target='_blank'属性
+		$('a[href^="http"]').each(function() {
+			$(this).attr('target', '_blank');
+		});
+	});
+</script>
+  </div>
+</body>
+</html>
+
+<!-- github fork me
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+-->

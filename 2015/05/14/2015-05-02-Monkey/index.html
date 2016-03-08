@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Monkey的用法 | xuxu的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Monkey 简介
+Monkey 官方文档(需要翻墙)
+Monkey 源码
+Monkey 是一个命令行工具，可以运行在 Android 模拟器里或真实设备中。它可以向系统发送伪随机(pseudo-random)的用户事件流(如按键输入、触摸屏输入、手势输入等)，可以对待测的目标应用或整个 Android 系统进行压力测试。因此 Monkey 测试是一种为了测试软件的稳定性、健壮性的快速有效的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Monkey的用法">
+<meta property="og:url" content="http://www.xuxu1988.com/2015/05/14/2015-05-02-Monkey/index.html">
+<meta property="og:site_name" content="xuxu的博客">
+<meta property="og:description" content="Monkey 简介
+Monkey 官方文档(需要翻墙)
+Monkey 源码
+Monkey 是一个命令行工具，可以运行在 Android 模拟器里或真实设备中。它可以向系统发送伪随机(pseudo-random)的用户事件流(如按键输入、触摸屏输入、手势输入等)，可以对待测的目标应用或整个 Android 系统进行压力测试。因此 Monkey 测试是一种为了测试软件的稳定性、健壮性的快速有效的方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Monkey的用法">
+<meta name="twitter:description" content="Monkey 简介
+Monkey 官方文档(需要翻墙)
+Monkey 源码
+Monkey 是一个命令行工具，可以运行在 Android 模拟器里或真实设备中。它可以向系统发送伪随机(pseudo-random)的用户事件流(如按键输入、触摸屏输入、手势输入等)，可以对待测的目标应用或整个 Android 系统进行压力测试。因此 Monkey 测试是一种为了测试软件的稳定性、健壮性的快速有效的方法">
+  
+    <link rel="alternative" href="/atom.xml" title="xuxu的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="/head2.png" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">xuxu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>链接</li>
+						
+						
+						<li>关于</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/测试基础">测试基础</a></li>
+				        
+							<li><a href="/tags/自动化">自动化</a></li>
+				        
+							<li><a href="/tags/mobile">移动端</a></li>
+				        
+							<li><a href="/tags/其他">其他技术</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Instrumentation/" style="font-size: 10px;">Instrumentation</a><a href="/tags/Monkey/" style="font-size: 12.5px;">Monkey</a><a href="/tags/Roboletric/" style="font-size: 10px;">Roboletric</a><a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a><a href="/tags/git/" style="font-size: 10px;">git</a><a href="/tags/mobile/" style="font-size: 17.5px;">mobile</a><a href="/tags/其他/" style="font-size: 12.5px;">其他</a><a href="/tags/接口测试/" style="font-size: 12.5px;">接口测试</a><a href="/tags/测试基础/" style="font-size: 12.5px;">测试基础</a><a href="/tags/自动化/" style="font-size: 15px;">自动化</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://testerhome.com">TesterHome</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jianbing.github.io">煎饼的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">高分子专业出身，入坑做测试，热爱技术的一个Tester</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">xuxu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/head2.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">xuxu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Time is a file that wears and makes no noise.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/测试基础">测试基础</a></li>
+		        
+					<li><a href="/tags/自动化">自动化</a></li>
+		        
+					<li><a href="/tags/mobile">移动端</a></li>
+		        
+					<li><a href="/tags/其他">其他技术</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/gb112211" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xumin07013230" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/riki.xuxu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-05-02-Monkey" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/14/2015-05-02-Monkey/" class="article-date">
+  	<time datetime="2015-05-14T02:27:13.000Z" itemprop="datePublished">2015-05-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Monkey的用法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Monkey/">Monkey</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Monkey_简介"><span class="toc-number">1.</span> <span class="toc-text">Monkey 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Monkey_命令选项"><span class="toc-number">2.</span> <span class="toc-text">Monkey 命令选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结束Monkey进程"><span class="toc-number">3.</span> <span class="toc-text">结束Monkey进程</span></a></li></ol>
+          
+
+      </div>
+      
+        <h3 id="Monkey_简介">Monkey 简介</h3><ul>
+<li><a href="https://developer.android.com/tools/help/monkey.html" target="_blank" rel="external">Monkey 官方文档(需要翻墙)</a></li>
+<li><a href="https://github.com/android/platform_development/tree/master/cmds/monkey/src/com/android/commands/monkey" target="_blank" rel="external">Monkey 源码</a></li>
+<li>Monkey 是一个命令行工具，可以运行在 Android 模拟器里或真实设备中。它可以向系统发送<code>伪随机(pseudo-random)</code>的用户事件流(如按键输入、触摸屏输入、手势输入等)，可以对待测的目标应用或整个 Android 系统进行压力测试。因此 Monkey 测试是一种为了测试软件的稳定性、健壮性的快速有效的方法<a id="more"></a></li>
+<li><p>基本语法：</p>
+  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="keyword">shell</span> monkey [<span class="keyword">options</span>] &lt;event-<span class="built_in">count</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>  如果不指定<code>options</code>，即类似于使用命令<code>adb shell monkey 1000</code>，那么将会对整个系统中安装的 package 发送事件流，换种说法就是对整个 Android 系统进行 Monkey 压力测试<br><br>  这是一个对指定应用（Android自带的<code>系统设置</code>应用）进行 Monkey 测试的例子，发送的事件流数目为1000：</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -<span class="tag">p</span> com<span class="class">.android</span><span class="class">.settings</span> <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Monkey_命令选项">Monkey 命令选项</h3><ul>
+<li><p>获取选项列表，Android 4.4版本中输入<code>adb shell monkey</code>,会显示选项列表如下：</p>
+  <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">usage</span>: <span class="atom">monkey</span> [-<span class="atom">p</span> <span class="name">ALLOWED_PACKAGE</span> [-<span class="atom">p</span> <span class="name">ALLOWED_PACKAGE</span>] ...]</span><br><span class="line">              [-<span class="atom">c</span> <span class="name">MAIN_CATEGORY</span> [-<span class="atom">c</span> <span class="name">MAIN_CATEGORY</span>] ...]</span><br><span class="line">              [--<span class="atom">ignore</span>-<span class="atom">crashes</span>] [--<span class="atom">ignore</span>-<span class="atom">timeouts</span>]</span><br><span class="line">              [--<span class="atom">ignore</span>-<span class="atom">security</span>-<span class="atom">exceptions</span>]</span><br><span class="line">              [--<span class="atom">monitor</span>-<span class="atom">native</span>-<span class="atom">crashes</span>] [--<span class="atom">ignore</span>-<span class="atom">native</span>-<span class="atom">crashes</span>]</span><br><span class="line">              [--<span class="atom">kill</span>-<span class="atom">process</span>-<span class="atom">after</span>-<span class="atom">error</span>] [--<span class="atom">hprof</span>]</span><br><span class="line">              [--<span class="atom">pct</span>-<span class="atom">touch</span> <span class="name">PERCENT</span>] [--<span class="atom">pct</span>-<span class="atom">motion</span> <span class="name">PERCENT</span>]</span><br><span class="line">              [--<span class="atom">pct</span>-<span class="atom">trackball</span> <span class="name">PERCENT</span>] [--<span class="atom">pct</span>-<span class="atom">syskeys</span> <span class="name">PERCENT</span>]</span><br><span class="line">              [--<span class="atom">pct</span>-<span class="atom">nav</span> <span class="name">PERCENT</span>] [--<span class="atom">pct</span>-<span class="atom">majornav</span> <span class="name">PERCENT</span>]</span><br><span class="line">              [--<span class="atom">pct</span>-<span class="atom">appswitch</span> <span class="name">PERCENT</span>] [--<span class="atom">pct</span>-<span class="atom">flip</span> <span class="name">PERCENT</span>]</span><br><span class="line">              [--<span class="atom">pct</span>-<span class="atom">anyevent</span> <span class="name">PERCENT</span>] [--<span class="atom">pct</span>-<span class="atom">pinchzoom</span> <span class="name">PERCENT</span>]</span><br><span class="line">              [--<span class="atom">pkg</span>-<span class="atom">blacklist</span>-<span class="atom">file</span> <span class="name">PACKAGE_BLACKLIST_FILE</span>]</span><br><span class="line">              [--<span class="atom">pkg</span>-<span class="atom">whitelist</span>-<span class="atom">file</span> <span class="name">PACKAGE_WHITELIST_FILE</span>]</span><br><span class="line">              [--<span class="atom">wait</span>-<span class="atom">dbg</span>] [--<span class="atom">dbg</span>-<span class="atom">no</span>-<span class="atom">events</span>]</span><br><span class="line">              [--<span class="atom">setup</span> <span class="atom">scriptfile</span>] [-<span class="atom">f</span> <span class="atom">scriptfile</span> [-<span class="atom">f</span> <span class="atom">scriptfile</span>] ...]</span><br><span class="line">              [--<span class="atom">port</span> <span class="atom">port</span>]</span><br><span class="line">              [-<span class="atom">s</span> <span class="name">SEED</span>] [-<span class="atom">v</span> [-<span class="atom">v</span>] ...]</span><br><span class="line">              [--<span class="atom">throttle</span> <span class="name">MILLISEC</span>] [--<span class="atom">randomize</span>-<span class="atom">throttle</span>]</span><br><span class="line">              [--<span class="atom">profile</span>-<span class="atom">wait</span> <span class="name">MILLISEC</span>]</span><br><span class="line">              [--<span class="atom">device</span>-<span class="atom">sleep</span>-<span class="atom">time</span> <span class="name">MILLISEC</span>]</span><br><span class="line">              [--<span class="atom">randomize</span>-<span class="atom">script</span>]</span><br><span class="line">              [--<span class="atom">script</span>-<span class="atom">log</span>]</span><br><span class="line">              [--<span class="atom">bugreport</span>]</span><br><span class="line">              [--<span class="atom">periodic</span>-<span class="atom">bugreport</span>]</span><br><span class="line">              <span class="name">COUNT</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>常用选项及参数说明<ul>
+<li><strong>-p</strong> 允许的包名列表，可同时指定多个包名，每个包都需要使用“-p”参数指定。包名的获取，可参考 python 脚本<a href="https://github.com/gb112211/AndroidTestScripts/blob/master/python/get_package_name.py" target="_blank" rel="external">get_package_name.py</a></li>
+<li><strong>—ignore-crashes</strong> 忽视应用 crash 报错，不指定该参数时，应用出现 crash，monkey 会自动停止发送事件，指定该参数后，mongkey 会在 crash 后也一直发送事件，知道所有事件发送完成</li>
+<li><strong>—ignore-timeouts</strong> 忽视超时导致的错误，即ANR的错误</li>
+<li><strong>—ignore-security-exceptions</strong> 忽视权限方面的错误</li>
+<li><strong>—monitor-native-crashes</strong> 监控由 C/C++ 代码引起的 crash</li>
+<li><strong>—ignore-native-crashes</strong> 忽视由 C/C++ 代码引起的 crash</li>
+<li><strong>—kill-process-after-error</strong> 当出现错误后杀掉应用的进程</li>
+<li><strong>—hprof</strong> 指定该选项后，monkey会在发送事件完成后生成性能报告，报告一般存放于/data/misc目录下，对报告的分析，需要使用<a href="https://developer.android.com/tools/debugging/debugging-tracing.html" target="_blank" rel="external">Traceview</a></li>
+<li><strong>—pct-touch</strong> 设定 touch 事件比例</li>
+<li><strong>—pct-motion</strong> 设定手势事件比例，例如滑动事件</li>
+<li><strong>—pct-trackball</strong> 设定跟踪球事件的比例</li>
+<li><strong>—pct-syskeys</strong> 设定系统按键事件的比例，如 Home、Back、音量+/-等</li>
+<li><strong>—pct-nav</strong> 设定”基本”导航事件的比例</li>
+<li><strong>—pct-majornav</strong> 设定”主要”导航事件比例</li>
+<li><strong>—pct-appswitch</strong> 设定启动 Activity 的事件比例</li>
+<li><strong>—pct-pinchzoom</strong> 设定缩放事件比例</li>
+<li><strong>—pct-anyevent</strong> 设定其他事件比例</li>
+<li><strong>-s</strong> 设定种子数，方便用于重现 bug</li>
+<li><strong>-v</strong> 设定输出信息的详细级别，1个 -v 表示级别为1，2个 -v 表示级别为2 </li>
+<li><strong>—throttle</strong> 设定事件之间的延时，单位为毫秒</li>
+<li><strong>COUNT</strong> 事件数目</li>
+</ul>
+</li>
+</ul>
+<h3 id="结束Monkey进程">结束Monkey进程</h3><p>执行 Monkey 的过程中如果想中途停止 Monkey 程序的运行，需要将 Monkey 的进程杀掉。  </p>
+<ul>
+<li>windows 下使用<code>findstr</code>，linux/mac 下用<code>grep</code></li>
+<li>执行<code>adb shell ps | findstr monkey</code>  </li>
+<li>获取到 monkey 进程的 pid 之后运行<code>adb shell kill 进程ID</code></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/14/2015-05-02-Instrumentation01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android Instrumentation简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/13/2015-05-02-Android-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android测试技能树</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015-05-02-Monkey" data-title="Android Monkey的用法" data-url="http://www.xuxu1988.com/2015/05/14/2015-05-02-Monkey/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xuxu1988"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 xuxu
+    	</div>
+      	<div class="footer-right">
+            <a href="http://www.kuaidiwo.cn/" target="_blank" >快递查询</a>
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+<div class="visit">
+
+            
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1254926852'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254926852%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+        </div>
+
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:22px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+
+<!-- 搜索框
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','6aJ19BsxER7cB4nYeaxp','2.0.0');
+</script>
+-->
+
+<!-- 将markdown里面的超链接在新窗口中打开 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+	    //为超链接加上target='_blank'属性
+		$('a[href^="http"]').each(function() {
+			$(this).attr('target', '_blank');
+		});
+	});
+</script>
+  </div>
+</body>
+</html>
+
+<!-- github fork me
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+-->
