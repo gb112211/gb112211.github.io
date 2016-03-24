@@ -17,10 +17,10 @@
 在 AS 中搭建 Robotium 环境与 Eclipse 会有很大的区别，这里给出一个简单的例子供大家参考！
 
 新建一个简单的 Demo 应用，使用 AS 的默">
-<meta property="og:image" content="http://i11.tietuku.com/7fd87285cad13124.png">
-<meta property="og:image" content="http://i11.tietuku.com/8473645285400ba9.png">
-<meta property="og:image" content="http://i11.tietuku.com/8a6fcd5164a85dcb.png">
-<meta property="og:image" content="http://i11.tietuku.com/58dee0ec1752759b.png">
+<meta property="og:image" content="http://i11.tietuku.cn/7fd87285cad13124.png">
+<meta property="og:image" content="http://i11.tietuku.cn/8473645285400ba9.png">
+<meta property="og:image" content="http://i11.tietuku.cn/8a6fcd5164a85dcb.png">
+<meta property="og:image" content="http://i11.tietuku.cn/58dee0ec1752759b.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio中搭建Robotium环境">
 <meta name="twitter:description" content="Android Studio 中搭建 Robotium 环境现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。
@@ -269,13 +269,13 @@
 <li><p>在<code>src/androidTest</code>，与默认创建的<code>ApplicationTest</code>类同级的目录下创建一个<code>MainActivityTest</code></p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">ActivityInstrumentationTestCase2&lt;MainActivity&gt;</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Solo</span> solo;</span><br><span class="line"></span><br><span class="line">    	public <span class="type">MainActivityTest</span>() &#123;</span><br><span class="line">        	<span class="keyword">super</span>(<span class="type">MainActivity</span>.<span class="keyword">class</span>);</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">    	<span class="annotation">@Before</span></span><br><span class="line">    	public void setUp() <span class="keyword">throws</span> <span class="type">Exception</span> &#123;</span><br><span class="line">        	<span class="keyword">super</span>.setUp();</span><br><span class="line">        	solo = <span class="keyword">new</span> <span class="type">Solo</span>(getInstrumentation(), getActivity());</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">    	<span class="annotation">@Test</span></span><br><span class="line">    	public void testShowText() &#123;</span><br><span class="line">        	<span class="type">Assert</span>.assertTrue(solo.searchText(<span class="string">"robotium test"</span>));</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>AS 左侧 Build Variants 中 Test Artifact 中选择<code>Android Instrumentation Tests</code><br><img src="http://i11.tietuku.com/7fd87285cad13124.png" alt="variants image"></p>
+<li><p>AS 左侧 Build Variants 中 Test Artifact 中选择<code>Android Instrumentation Tests</code><br><img src="http://i11.tietuku.cn/7fd87285cad13124.png" alt="variants image"></p>
 </li>
-<li><p>菜单栏 Run &gt; Edit Configurations… &gt; Default &gt; Android Tests 指定 instrumentation runner 为<code>android.test.InstrumentationTestRunner</code><br><img src="http://i11.tietuku.com/8473645285400ba9.png" alt="runner image"></p>
+<li><p>菜单栏 Run &gt; Edit Configurations… &gt; Default &gt; Android Tests 指定 instrumentation runner 为<code>android.test.InstrumentationTestRunner</code><br><img src="http://i11.tietuku.cn/8473645285400ba9.png" alt="runner image"></p>
 </li>
-<li><p>运行测试，使用命令<code>gradlew cAT</code> 或者使用 Gradle界面工具运行测试<br><img src="http://i11.tietuku.com/8a6fcd5164a85dcb.png" alt="runtest image"></p>
+<li><p>运行测试，使用命令<code>gradlew cAT</code> 或者使用 Gradle界面工具运行测试<br><img src="http://i11.tietuku.cn/8a6fcd5164a85dcb.png" alt="runtest image"></p>
 </li>
-<li><p>运行成功后在 app/build/reports/androidTests/connected 目录下用浏览器打开报告<br><img src="http://i11.tietuku.com/58dee0ec1752759b.png" alt="result image"></p>
+<li><p>运行成功后在 app/build/reports/androidTests/connected 目录下用浏览器打开报告<br><img src="http://i11.tietuku.cn/58dee0ec1752759b.png" alt="result image"></p>
 </li>
 </ul>
 

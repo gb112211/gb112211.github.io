@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Time is a file that wears and makes no noise.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuxu1988.com/"/>
-  <updated>2016-01-29T13:31:35.000Z</updated>
+  <updated>2016-03-24T12:21:49.000Z</updated>
   <id>http://www.xuxu1988.com/</id>
   
   <author>
@@ -19,18 +19,18 @@
     <link href="http://www.xuxu1988.com/2016/01/29/cmd-color/"/>
     <id>http://www.xuxu1988.com/2016/01/29/cmd-color/</id>
     <published>2016-01-29T10:29:54.000Z</published>
-    <updated>2016-01-29T13:31:35.000Z</updated>
+    <updated>2016-03-24T12:21:49.000Z</updated>
     <content type="html"><![CDATA[<h2 id="让你的CMD在打印logcat的时候带上颜色">让你的CMD在打印logcat的时候带上颜色</h2><p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
-<p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.com/c563d2d835357ac4.png" alt="cmd"></p>
+<p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.cn/c563d2d835357ac4.png" alt="cmd"></p>
 <a id="more"></a>
-<p>一般情况下，在 CMD 中执行 <code>adb logcat -v time</code> 打印 log 时是不带有颜色的，看起来相当的不爽：<br><img src="http://i13.tietuku.com/d8e91d6448d3ad87.png" alt="no_color"></p>
-<p>通过使用 Python，可以将输出的 logcat 内容按优先级进行过滤并加上颜色，然后再显示在 CMD 中：<br><img src="http://i13.tietuku.com/9125acd753f4dc05.png" alt="color"></p>
+<p>一般情况下，在 CMD 中执行 <code>adb logcat -v time</code> 打印 log 时是不带有颜色的，看起来相当的不爽：<br><img src="http://i13.tietuku.cn/d8e91d6448d3ad87.png" alt="no_color"></p>
+<p>通过使用 Python，可以将输出的 logcat 内容按优先级进行过滤并加上颜色，然后再显示在 CMD 中：<br><img src="http://i13.tietuku.cn/9125acd753f4dc05.png" alt="color"></p>
 <p>加上颜色后，看起来就舒服多了！</p>
 <p>具体实现的代码请查看 <a href="https://github.com/gb112211/AndroidTestScripts/blob/master/logcat/logcat.py" target="_blank" rel="external">logcat.py</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="让你的CMD在打印logcat的时候带上颜色">让你的CMD在打印logcat的时候带上颜色</h2><p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
-<p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.com/c563d2d835357ac4.png" alt="cmd"></p>]]>
+<p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.cn/c563d2d835357ac4.png" alt="cmd"></p>]]>
     
     </summary>
     
@@ -45,7 +45,7 @@
     <link href="http://www.xuxu1988.com/2016/01/29/api-test-moco/"/>
     <id>http://www.xuxu1988.com/2016/01/29/api-test-moco/</id>
     <published>2016-01-29T10:26:03.000Z</published>
-    <updated>2016-01-29T10:27:59.000Z</updated>
+    <updated>2016-03-24T12:23:39.000Z</updated>
     <content type="html"><![CDATA[<h3 id="Moco_简介">Moco 简介</h3><p>Moco 的作者是郑晔，该框架还在 JavaOne 2013 大会上获过奖。<br>简单的说，Moco 是一个搭建模拟服务器的工具，其支持 API 和独立运行两种方式，前者通常是在 junit 等测试框架中使用，后者则是通过运行一个 jar 包开启服务。<br>Moco 能帮助解决开发中的哪些问题？作者的回答如下：</p>
 <blockquote>
 <p>   Moco是针对HTTP集成而生的，不过，现在也有人把它用在其它需要一个模拟服务器的场景中。比如，在移动开发中，有人开发一个移动应用，需要有一个远端服务，但在开发时，这个服务还不存在，他就用Moco模拟了一个服务，保证移动应用可以顺利的开发。同样，也有人把它用在Web前端开发里，当我们的页面需要通过与服务器交互时，就可以用Moco模拟这样一个服务。这种做法在开发一个页面原型时，非常有用，因为那个时候，我们还来不及开发一个完整的服务。</p>
@@ -78,11 +78,11 @@
 </li>
 <li><p>Chrome 安装 Postman 的话需要翻墙，可以通过离线安装的方式进行安装，具体自行百度。建议使用 VPN。</p>
 </li>
-<li><p>测试获取书籍列表：<br><img src="http://i13.tietuku.com/31fadd4fdf665807.png" alt="book_list"></p>
+<li><p>测试获取书籍列表：<br><img src="http://i13.tietuku.cn/31fadd4fdf665807.png" alt="book_list"></p>
 </li>
-<li><p>获取 Java 核心编程的信息：<br><img src="http://i13.tietuku.com/043dd2e38a836c04.png" alt="java_hxbc"></p>
+<li><p>获取 Java 核心编程的信息：<br><img src="http://i13.tietuku.cn/043dd2e38a836c04.png" alt="java_hxbc"></p>
 </li>
-<li><p>获取 Jack 的信息：<br><img src="http://i13.tietuku.com/48e12282efae7460.png" alt="jack"></p>
+<li><p>获取 Jack 的信息：<br><img src="http://i13.tietuku.cn/48e12282efae7460.png" alt="jack"></p>
 </li>
 </ul>
 <h3 id="其它配置方法">其它配置方法</h3><ul>
@@ -234,7 +234,7 @@
     <link href="http://www.xuxu1988.com/2016/01/13/robotium-android-studio/"/>
     <id>http://www.xuxu1988.com/2016/01/13/robotium-android-studio/</id>
     <published>2016-01-13T14:33:21.000Z</published>
-    <updated>2016-01-13T16:24:38.000Z</updated>
+    <updated>2016-03-24T12:40:04.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Android_Studio_中搭建_Robotium_环境">Android Studio 中搭建 Robotium 环境</h2><p>现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。</p>
 <p>在 AS 中搭建 Robotium 环境与 Eclipse 会有很大的区别，这里给出一个简单的例子供大家参考！</p>
 <ul>
@@ -249,13 +249,13 @@
 <li><p>在<code>src/androidTest</code>，与默认创建的<code>ApplicationTest</code>类同级的目录下创建一个<code>MainActivityTest</code></p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">ActivityInstrumentationTestCase2&lt;MainActivity&gt;</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Solo</span> solo;</span><br><span class="line"></span><br><span class="line">    	public <span class="type">MainActivityTest</span>() &#123;</span><br><span class="line">        	<span class="keyword">super</span>(<span class="type">MainActivity</span>.<span class="keyword">class</span>);</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">    	<span class="annotation">@Before</span></span><br><span class="line">    	public void setUp() <span class="keyword">throws</span> <span class="type">Exception</span> &#123;</span><br><span class="line">        	<span class="keyword">super</span>.setUp();</span><br><span class="line">        	solo = <span class="keyword">new</span> <span class="type">Solo</span>(getInstrumentation(), getActivity());</span><br><span class="line">    	&#125;</span><br><span class="line"></span><br><span class="line">    	<span class="annotation">@Test</span></span><br><span class="line">    	public void testShowText() &#123;</span><br><span class="line">        	<span class="type">Assert</span>.assertTrue(solo.searchText(<span class="string">"robotium test"</span>));</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>AS 左侧 Build Variants 中 Test Artifact 中选择<code>Android Instrumentation Tests</code><br><img src="http://i11.tietuku.com/7fd87285cad13124.png" alt="variants image"></p>
+<li><p>AS 左侧 Build Variants 中 Test Artifact 中选择<code>Android Instrumentation Tests</code><br><img src="http://i11.tietuku.cn/7fd87285cad13124.png" alt="variants image"></p>
 </li>
-<li><p>菜单栏 Run &gt; Edit Configurations… &gt; Default &gt; Android Tests 指定 instrumentation runner 为<code>android.test.InstrumentationTestRunner</code><br><img src="http://i11.tietuku.com/8473645285400ba9.png" alt="runner image"></p>
+<li><p>菜单栏 Run &gt; Edit Configurations… &gt; Default &gt; Android Tests 指定 instrumentation runner 为<code>android.test.InstrumentationTestRunner</code><br><img src="http://i11.tietuku.cn/8473645285400ba9.png" alt="runner image"></p>
 </li>
-<li><p>运行测试，使用命令<code>gradlew cAT</code> 或者使用 Gradle界面工具运行测试<br><img src="http://i11.tietuku.com/8a6fcd5164a85dcb.png" alt="runtest image"></p>
+<li><p>运行测试，使用命令<code>gradlew cAT</code> 或者使用 Gradle界面工具运行测试<br><img src="http://i11.tietuku.cn/8a6fcd5164a85dcb.png" alt="runtest image"></p>
 </li>
-<li><p>运行成功后在 app/build/reports/androidTests/connected 目录下用浏览器打开报告<br><img src="http://i11.tietuku.com/58dee0ec1752759b.png" alt="result image"></p>
+<li><p>运行成功后在 app/build/reports/androidTests/connected 目录下用浏览器打开报告<br><img src="http://i11.tietuku.cn/58dee0ec1752759b.png" alt="result image"></p>
 </li>
 </ul>
 ]]></content>
@@ -323,7 +323,7 @@
     <link href="http://www.xuxu1988.com/2015/05/23/robolectric-01/"/>
     <id>http://www.xuxu1988.com/2015/05/23/robolectric-01/</id>
     <published>2015-05-22T16:47:59.000Z</published>
-    <updated>2016-01-29T15:14:30.000Z</updated>
+    <updated>2016-03-24T12:25:13.000Z</updated>
     <content type="html"><![CDATA[<!-- create time: 2015-05-21 10:15:20  -->
 <p><a href="http://robolectric.org" target="_blank" rel="external"><code>Robolectric-官网</code></a></p>
 <p>Robolectric 官网文档少得可怜，可以选择 Eclipse + Maven , 也可以选择 Android Studio + Gradle<br>参考了 <a href="https://github.com/robolectric/robolectric-samples" target="_blank" rel="external">roboletric-samples</a> ，踩了很多的坑。。<br>OK，接下来记录下我在 Mac 上的搭建步骤。其他系统可以参考。<br>各种软件版本：<br>JDK：1.8<br>Android Studio：1.2<br>Roboletric：3.0-SNAPSHOT</p>
@@ -341,18 +341,18 @@
 </li>
 <li><p>配置 Build Variants</p>
 <p>在 Build Variants 面板中选择 Unit Tests  </p>
-<p><img src="http://i5.tietuku.com/c1d3995e4239f2cas.jpg" alt="image"></p>
+<p><img src="http://i5.tietuku.cn/c1d3995e4239f2cas.jpg" alt="image"></p>
 </li>
 <li><p>完成添加依赖</p>
 <p>打开 Gradle 面板，点击刷新按钮  </p>
-<p><img src="http://i5.tietuku.com/abb5987efa035e7cs.jpg" alt="image"></p>
+<p><img src="http://i5.tietuku.cn/abb5987efa035e7cs.jpg" alt="image"></p>
 <p>完成之后可以在看到成功添加的所有依赖</p>
-<p><img src="http://i5.tietuku.com/d8ebc209eda36666s.jpg" alt="image"></p>
+<p><img src="http://i5.tietuku.cn/d8ebc209eda36666s.jpg" alt="image"></p>
 </li>
 </ul>
 <h2 id="完成_Test_Case">完成 Test Case</h2><ol>
 <li>重命名 app/src/androidTest 为 test，并且删除创建项目时自动生成的 ApplicationTest</li>
-<li>在 MainActivity 中快速创建测试类，选择 JUnit 4，会自动创建 MainActivityTest 至之前修改的 test 目录下<br><img src="http://i5.tietuku.com/ced2617d951f3620s.jpg" alt="image"></li>
+<li>在 MainActivity 中快速创建测试类，选择 JUnit 4，会自动创建 MainActivityTest 至之前修改的 test 目录下<br><img src="http://i5.tietuku.cn/ced2617d951f3620s.jpg" alt="image"></li>
 <li><p>编写 Test Case，这里直接贴上测试代码，代码都相当简单</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xuxu.roboletricdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.robolectric.Robolectric;</span><br><span class="line"><span class="keyword">import</span> org.robolectric.RobolectricGradleTestRunner;</span><br><span class="line"><span class="keyword">import</span> org.robolectric.annotation.Config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertNotNull;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.fail;</span><br><span class="line"></span><br><span class="line"><span class="javadoc">/**</span><br><span class="line"> * Created by xuxu on 15/5/23.</span><br><span class="line"> */</span></span><br><span class="line"><span class="annotation">@RunWith</span>(RobolectricGradleTestRunner.class)</span><br><span class="line"><span class="annotation">@Config</span>(constants = BuildConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 引用待测Activity</span></span><br><span class="line">    <span class="keyword">private</span> MainActivity mActivity;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 引用待测Activity中的TextView和Button</span></span><br><span class="line">    <span class="keyword">private</span> TextView textView;</span><br><span class="line">    <span class="keyword">private</span> Button button;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 获取待测Activity</span></span><br><span class="line">        mActivity = Robolectric.setupActivity(MainActivity.class);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化textView和button</span></span><br><span class="line">        textView = (TextView) mActivity.findViewById(R.id.textView);</span><br><span class="line">        button = (Button) mActivity.findViewById(R.id.button);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试界面初始化结果</span></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInit</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        assertNotNull(mActivity);</span><br><span class="line">        assertNotNull(textView);</span><br><span class="line">        assertNotNull(button);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断包名</span></span><br><span class="line">        assertEquals(<span class="string">"com.xuxu.roboletricdemo"</span>, mActivity.getPackageName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断textView默认显示的内容</span></span><br><span class="line">        assertEquals(<span class="string">"Hello world!"</span>, textView.getText().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试点击button，textView显示的内容</span></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testButton</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 点击button</span></span><br><span class="line">        button.performClick();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断点击后textView的内容</span></span><br><span class="line">        assertEquals(<span class="string">"Hello xuxu!"</span>, textView.getText().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一个失败的用例</span></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFail</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        fail(<span class="string">"This case failed!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -361,7 +361,7 @@
 <li><p>运行方式</p>
 <ol>
 <li><p>打开 Gradle 面板，在面板中执行测试</p>
-<p><img src="http://i5.tietuku.com/0a1273dfa1ffd79as.jpg" alt="image"></p>
+<p><img src="http://i5.tietuku.cn/0a1273dfa1ffd79as.jpg" alt="image"></p>
 </li>
 <li><p>右键 <strong>MainActivityTest</strong> &gt; <strong>Run ‘MainActivityTest’</strong></p>
 </li>
@@ -370,7 +370,7 @@
 </li>
 <li><p>查看报告</p>
 <p>执行完测试之后，会在 <code>app/build/reports/tests/</code>目录下生成相应地测试报告，使用浏览器打开</p>
-<p><img src="http://i5.tietuku.com/8cdc5131164da46bs.jpg" alt="image">    </p>
+<p><img src="http://i5.tietuku.cn/8cdc5131164da46bs.jpg" alt="image">    </p>
 </li>
 </ul>
 <!-- link -->
@@ -839,7 +839,7 @@
     <link href="http://www.xuxu1988.com/2015/05/14/2015-05-02-Instrumentation01/"/>
     <id>http://www.xuxu1988.com/2015/05/14/2015-05-02-Instrumentation01/</id>
     <published>2015-05-14T12:27:13.000Z</published>
-    <updated>2016-01-29T15:12:43.000Z</updated>
+    <updated>2016-03-24T12:41:27.000Z</updated>
     <content type="html"><![CDATA[<h2 id="APIs_&amp;&amp;_Source_code">APIs &amp;&amp; Source code</h2><ul>
 <li><a href="http://developer.android.com/reference/android/app/Instrumentation.html" target="_blank" rel="external">官方 APIs 地址(需要翻墙)</a></li>
 <li><a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.2_r1/android/app/Instrumentation.java#Instrumentation" target="_blank" rel="external">Source code</a></li>
@@ -855,7 +855,7 @@
 <li><p>activity_main.xml 内容为：</p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;RelativeLayout xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">   	xmlns:<span class="variable">tools=</span><span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">   	android:<span class="variable">layout_width=</span><span class="string">"match_parent"</span></span><br><span class="line">   	android:<span class="variable">layout_height=</span><span class="string">"match_parent"</span></span><br><span class="line">   	android:<span class="variable">paddingBottom=</span><span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">   	android:<span class="variable">paddingLeft=</span><span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">   	android:<span class="variable">paddingRight=</span><span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">   	android:<span class="variable">paddingTop=</span><span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">   	tools:<span class="variable">context=</span><span class="string">"com.xuxu.unittest.MainActivity"</span> &gt;</span><br><span class="line"></span><br><span class="line">   &lt;TextView</span><br><span class="line">   	android:<span class="variable">id=</span><span class="string">"@+id/textView"</span></span><br><span class="line">       android:<span class="variable">layout_width=</span><span class="string">"wrap_content"</span></span><br><span class="line">       android:<span class="variable">layout_height=</span><span class="string">"wrap_content"</span></span><br><span class="line">       android:<span class="variable">text=</span><span class="string">"@string/hello_world"</span> /&gt;</span><br><span class="line"></span><br><span class="line">   &lt;Button</span><br><span class="line">       android:<span class="variable">id=</span><span class="string">"@+id/button"</span></span><br><span class="line">       android:<span class="variable">layout_width=</span><span class="string">"wrap_content"</span></span><br><span class="line">       android:<span class="variable">layout_height=</span><span class="string">"wrap_content"</span></span><br><span class="line">       android:<span class="variable">layout_centerHorizontal=</span><span class="string">"true"</span></span><br><span class="line">       android:<span class="variable">layout_centerVertical=</span><span class="string">"true"</span></span><br><span class="line">       android:<span class="variable">text=</span><span class="string">"Button"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
 <p>界面效果为：</p>
-<p><img src="http://i12.tietuku.com/b9695e036450ca74.jpg" alt="效果图"></p>
+<p><img src="http://i12.tietuku.cn/b9695e036450ca74.jpg" alt="效果图"></p>
 </li>
 <li><p>配置 AndroidManifest.xml  </p>
 <ul>
@@ -866,7 +866,7 @@
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-library android:<span class="property">name</span>=<span class="string">"android.test.runner"</span> /&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>文件内容截图：</p>
-<p><img src="http://i12.tietuku.com/cbde10af80847a76.jpg" alt="AndroidManiest 内容截图"> <br></p>
+<p><img src="http://i12.tietuku.cn/cbde10af80847a76.jpg" alt="AndroidManiest 内容截图"> <br></p>
 </li>
 </ul>
 </li>
@@ -886,7 +886,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xuxu.unittest.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.xuxu.unittest.MainActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.test.ActivityInstrumentationTestCase2;</span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivityTest</span> <span class="keyword">extends</span> <span class="title">ActivityInstrumentationTestCase2</span>&lt;<span class="title">MainActivity</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> MainActivity mActivity;</span><br><span class="line">	<span class="keyword">private</span> TextView textView;</span><br><span class="line">	<span class="keyword">private</span> Button button;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MainActivityTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(MainActivity.class);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.setUp();</span><br><span class="line"></span><br><span class="line">		mActivity = getActivity();</span><br><span class="line">		textView = (TextView) mActivity.findViewById(com.xuxu.unittest.R.id.textView);</span><br><span class="line">		button = (Button) mActivity.findViewById(com.xuxu.unittest.R.id.button);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//测试初始化条件</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		assertEquals(<span class="string">"Hello world!"</span>, textView.getText().toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//测试点击Button之后TextView的值</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testButton</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">//在UI线程中操作</span></span><br><span class="line">		mActivity.runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="annotation">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				button.performClick();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	Thread.sleep(<span class="number">500</span>); <span class="comment">//加个延时，否则TextView内容还为更改，就已经做断言了</span></span><br><span class="line">	assertEquals(<span class="string">"Hello android!"</span>, textView.getText().toString());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>右键项目，选择 Run As Android JUnit </p>
-<p><img src="http://i12.tietuku.com/470f3119080b7137.jpg" alt="运行结果"></p>
+<p><img src="http://i12.tietuku.cn/470f3119080b7137.jpg" alt="运行结果"></p>
 </li>
 </ul>
 </li>
