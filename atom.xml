@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Time is a file that wears and makes no noise.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuxu1988.com/"/>
-  <updated>2016-04-24T04:36:35.000Z</updated>
+  <updated>2016-04-25T15:02:14.000Z</updated>
   <id>http://www.xuxu1988.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[DrozerForMac]]></title>
+    <title><![CDATA[Drozer For Mac]]></title>
     <link href="http://www.xuxu1988.com/2016/04/24/DrozerForMac/"/>
     <id>http://www.xuxu1988.com/2016/04/24/DrozerForMac/</id>
     <published>2016-04-24T04:33:47.000Z</published>
-    <updated>2016-04-24T04:36:35.000Z</updated>
+    <updated>2016-04-25T15:02:14.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Drozer">Drozer</h2><p>Drozer, 一个用于Android App 安全测试的工具。<a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf" target="_blank" rel="external">使用说明文档</a></p>
 <h2 id="安装">安装</h2><p><a href="https://labs.mwrinfosecurity.com/tools/drozer/" target="_blank" rel="external">Drozer官网</a></p>
 <ul>
