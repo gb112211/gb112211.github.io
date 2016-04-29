@@ -2,6 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     
+  <url>
+    <loc>http://www.xuxu1988.com/2016/01/13/robotium-android-studio/</loc>
+    <lastmod>2016-04-29T12:44:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Studio中搭建Robotium环境</title>
+        <pubTime>2016-01-13T14:33:21.000Z</pubTime>
+        
+        <tag>Android </tag>
+         
+        <tag>Robotium </tag>
+         
+        <tag>mobile </tag>
+         
+        <tag>自动化 </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xuxu1988.com/2016/01/29/cmd-color/</loc>
+    <lastmod>2016-04-29T12:43:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>让你的CMD在打印logcat的时候带上颜色</title>
+        <pubTime>2016-01-29T10:29:54.000Z</pubTime>
+        
+        <tag>Android </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xuxu1988.com/2016/01/14/Android-monkeyScript/</loc>
+    <lastmod>2016-04-29T12:43:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Monkey Script</title>
+        <pubTime>2016-01-14T15:47:04.000Z</pubTime>
+        
+        <tag>Android </tag>
+         
+        <tag>Monkey </tag>
+         
+        <tag>mobile </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xuxu1988.com/2015/12/23/2015-12-07-syn-git-project/</loc>
+    <lastmod>2016-04-29T12:43:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>同步GitHub上已Fork的项目</title>
+        <pubTime>2015-12-22T16:47:59.000Z</pubTime>
+        
+        <tag>git </tag>
+         
+        <tag>其他 </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xuxu1988.com/2015/05/13/2015-05-02-Android-Tree/</loc>
+    <lastmod>2016-04-29T12:42:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android测试技能树</title>
+        <pubTime>2015-05-13T12:27:13.000Z</pubTime>
+        
+        <tag>Android </tag>
+         
+        <tag>mobile </tag>
+         
+        <tag>测试基础 </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -70,32 +186,6 @@
 
     
   <url>
-    <loc>http://www.xuxu1988.com/2016/01/13/robotium-android-studio/</loc>
-    <lastmod>2016-03-24T12:40:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Studio中搭建Robotium环境</title>
-        <pubTime>2016-01-13T14:33:21.000Z</pubTime>
-        
-        <tag>Android </tag>
-         
-        <tag>Robotium </tag>
-         
-        <tag>mobile </tag>
-         
-        <tag>自动化 </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.xuxu1988.com/2015/05/23/robolectric-01/</loc>
     <lastmod>2016-03-24T12:25:13.000Z</lastmod>
     <data>
@@ -128,50 +218,6 @@
         <pubTime>2016-01-29T10:26:03.000Z</pubTime>
         
         <tag>接口测试 </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xuxu1988.com/2016/01/29/cmd-color/</loc>
-    <lastmod>2016-03-24T12:21:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>让你的CMD在打印logcat的时候带上颜色</title>
-        <pubTime>2016-01-29T10:29:54.000Z</pubTime>
-        
-        <tag>Android </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xuxu1988.com/2015/05/13/2015-05-02-Android-Tree/</loc>
-    <lastmod>2016-01-30T06:45:47.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android测试技能树</title>
-        <pubTime>2015-05-13T12:27:13.000Z</pubTime>
-        
-        <tag>Android </tag>
-         
-        <tag>mobile </tag>
-         
-        <tag>测试基础 </tag>
          
          
            
@@ -281,52 +327,6 @@
         <pubTime>2016-01-27T15:00:19.000Z</pubTime>
         
         <tag>接口测试 </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xuxu1988.com/2016/01/14/Android-monkeyScript/</loc>
-    <lastmod>2016-01-27T15:03:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Monkey Script</title>
-        <pubTime>2016-01-14T15:47:04.000Z</pubTime>
-        
-        <tag>Android </tag>
-         
-        <tag>Monkey </tag>
-         
-        <tag>mobile </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xuxu1988.com/2015/12/23/2015-12-07-syn-git-project/</loc>
-    <lastmod>2016-01-13T16:13:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>同步GitHub上已Fork的项目</title>
-        <pubTime>2015-12-22T16:47:59.000Z</pubTime>
-        
-        <tag>git </tag>
-         
-        <tag>其他 </tag>
          
          
            

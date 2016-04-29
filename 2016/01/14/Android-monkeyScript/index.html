@@ -82,24 +82,24 @@
 
 
 
-<meta name="description" content="Android Monkey Script在 Monkey 命令选项中有一个这样的选项：
+<meta name="description" content="在 Monkey 命令选项中有一个这样的选项：
 1[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]
 对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。通过阅读 Monkey 源码 ，在  MonkeySourceScript 这个类中，发现有给出一段注释：
-123">
+1234567891011121314/** *">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Monkey Script">
 <meta property="og:url" content="http://www.xuxu1988.com/2016/01/14/Android-monkeyScript/index.html">
 <meta property="og:site_name" content="xuxu的博客">
-<meta property="og:description" content="Android Monkey Script在 Monkey 命令选项中有一个这样的选项：
+<meta property="og:description" content="在 Monkey 命令选项中有一个这样的选项：
 1[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]
 对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。通过阅读 Monkey 源码 ，在  MonkeySourceScript 这个类中，发现有给出一段注释：
-123">
+1234567891011121314/** *">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Monkey Script">
-<meta name="twitter:description" content="Android Monkey Script在 Monkey 命令选项中有一个这样的选项：
+<meta name="twitter:description" content="在 Monkey 命令选项中有一个这样的选项：
 1[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]
 对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。通过阅读 Monkey 源码 ，在  MonkeySourceScript 这个类中，发现有给出一段注释：
-123">
+1234567891011121314/** *">
 
 
 
@@ -337,7 +337,7 @@
       
 
       
-        <h2 id="Android_Monkey_Script">Android Monkey Script</h2><p>在 Monkey 命令选项中有一个这样的选项：</p>
+        <p>在 Monkey 命令选项中有一个这样的选项：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]</span><br></pre></td></tr></table></figure>
 <p>对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。<br>通过阅读 <a href="https://github.com/gb112211/Android-Platform-Development/tree/master/cmds/monkey/src/com/android/commands/monkey" target="_blank" rel="external">Monkey 源码</a> ，在  MonkeySourceScript 这个类中，发现有给出一段注释：</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> monkey event queue. It takes a script to produce events sample script format:</span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span> type= raw events</span><br><span class="line"> <span class="keyword">*</span> count= 10</span><br><span class="line"> <span class="keyword">*</span> speed= 1.0</span><br><span class="line"> <span class="keyword">*</span> start data &amp;gt;&amp;gt;</span><br><span class="line"> <span class="keyword">*</span> captureDispatchPointer(5109520,5109520,0,230.75429,458.1814,0.20784314,0.06666667,0,0.0,0.0,65539,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchKey(5113146,5113146,0,20,0,0,0,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchFlip(true)</span><br><span class="line"> <span class="keyword">*</span> ...</span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;/pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span>/</span><br></pre></td></tr></table></figure>
@@ -545,20 +545,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="http://xuxu1988.com" target="_blank" title="Links">
-                  
-                    <i class="fa fa-globe"></i>
-                  
-                  Links
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
                 <a href="https://github.com/gb112211" target="_blank" title="GitHub">
                   
                     <i class="fa fa-github"></i>
                   
                   GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/xumin07013230" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
                 </a>
               </span>
             
@@ -579,6 +579,24 @@
 
         
         
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://testerhome.com" title="TestHome" target="_blank">TestHome</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jianbing.github.io" title="煎饼的博客" target="_blank">煎饼的博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
@@ -589,7 +607,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_Monkey_Script"><span class="nav-number">1.</span> <span class="nav-text">Android Monkey Script</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

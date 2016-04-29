@@ -108,8 +108,8 @@
     <link href="http://www.xuxu1988.com/2016/01/29/cmd-color/"/>
     <id>http://www.xuxu1988.com/2016/01/29/cmd-color/</id>
     <published>2016-01-29T10:29:54.000Z</published>
-    <updated>2016-03-24T12:21:49.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="让你的CMD在打印logcat的时候带上颜色">让你的CMD在打印logcat的时候带上颜色</h2><p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
+    <updated>2016-04-29T12:43:51.000Z</updated>
+    <content type="html"><![CDATA[<p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
 <p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.cn/c563d2d835357ac4.png" alt="cmd"></p>
 <a id="more"></a>
 <p>一般情况下，在 CMD 中执行 <code>adb logcat -v time</code> 打印 log 时是不带有颜色的，看起来相当的不爽：<br><img src="http://i13.tietuku.cn/d8e91d6448d3ad87.png" alt="no_color"></p>
@@ -118,7 +118,7 @@
 <p>具体实现的代码请查看 <a href="https://github.com/gb112211/AndroidTestScripts/blob/master/logcat/logcat.py" target="_blank" rel="external">logcat.py</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="让你的CMD在打印logcat的时候带上颜色">让你的CMD在打印logcat的时候带上颜色</h2><p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
+    <![CDATA[<p>在平常测试 Android 应用的时候，个人是不太喜欢使用 DDMS 或者 Monitor 抓取 logcat 的，而是习惯了使用命令代替。</p>
 <p>在 CMD 中打印 logcat 的时候，由于 logcat 的信息量非常大，默认的缓冲区太小，会导致 log 信息很容易被冲掉，因此需要将 CMD 的缓冲区高度设置为最大：<br><img src="http://i13.tietuku.cn/c563d2d835357ac4.png" alt="cmd"></p>]]>
     
     </summary>
@@ -262,8 +262,8 @@
     <link href="http://www.xuxu1988.com/2016/01/14/Android-monkeyScript/"/>
     <id>http://www.xuxu1988.com/2016/01/14/Android-monkeyScript/</id>
     <published>2016-01-14T15:47:04.000Z</published>
-    <updated>2016-01-27T15:03:34.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Android_Monkey_Script">Android Monkey Script</h2><p>在 Monkey 命令选项中有一个这样的选项：</p>
+    <updated>2016-04-29T12:43:33.000Z</updated>
+    <content type="html"><![CDATA[<p>在 Monkey 命令选项中有一个这样的选项：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]</span><br></pre></td></tr></table></figure>
 <p>对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。<br>通过阅读 <a href="https://github.com/gb112211/Android-Platform-Development/tree/master/cmds/monkey/src/com/android/commands/monkey" target="_blank" rel="external">Monkey 源码</a> ，在  MonkeySourceScript 这个类中，发现有给出一段注释：</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> monkey event queue. It takes a script to produce events sample script format:</span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span> type= raw events</span><br><span class="line"> <span class="keyword">*</span> count= 10</span><br><span class="line"> <span class="keyword">*</span> speed= 1.0</span><br><span class="line"> <span class="keyword">*</span> start data &amp;gt;&amp;gt;</span><br><span class="line"> <span class="keyword">*</span> captureDispatchPointer(5109520,5109520,0,230.75429,458.1814,0.20784314,0.06666667,0,0.0,0.0,65539,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchKey(5113146,5113146,0,20,0,0,0,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchFlip(true)</span><br><span class="line"> <span class="keyword">*</span> ...</span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;/pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span>/</span><br></pre></td></tr></table></figure>
@@ -301,7 +301,7 @@
 <p>附 <a href="http://www.android-doc.com/reference/android/view/KeyEvent.html" target="_blank" rel="external">KeyEvent</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="Android_Monkey_Script">Android Monkey Script</h2><p>在 Monkey 命令选项中有一个这样的选项：</p>
+    <![CDATA[<p>在 Monkey 命令选项中有一个这样的选项：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[--setup scriptfile] [-f scriptfile [-f scriptfile] ...]</span><br></pre></td></tr></table></figure>
 <p>对于这个选项的说明，Google 在 Monkey 的官方文档里面并未进行说明。<br>通过阅读 <a href="https://github.com/gb112211/Android-Platform-Development/tree/master/cmds/monkey/src/com/android/commands/monkey">Monkey 源码</a> ，在  MonkeySourceScript 这个类中，发现有给出一段注释：</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> monkey event queue. It takes a script to produce events sample script format:</span><br><span class="line"> <span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span> type= raw events</span><br><span class="line"> <span class="keyword">*</span> count= 10</span><br><span class="line"> <span class="keyword">*</span> speed= 1.0</span><br><span class="line"> <span class="keyword">*</span> start data &amp;gt;&amp;gt;</span><br><span class="line"> <span class="keyword">*</span> captureDispatchPointer(5109520,5109520,0,230.75429,458.1814,0.20784314,0.06666667,0,0.0,0.0,65539,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchKey(5113146,5113146,0,20,0,0,0,0)</span><br><span class="line"> <span class="keyword">*</span> captureDispatchFlip(true)</span><br><span class="line"> <span class="keyword">*</span> ...</span><br><span class="line"> <span class="keyword">*</span> <span class="variable">&lt;/pre&gt;</span></span><br><span class="line"> <span class="keyword">*</span>/</span><br></pre></td></tr></table></figure>]]>
@@ -323,8 +323,8 @@
     <link href="http://www.xuxu1988.com/2016/01/13/robotium-android-studio/"/>
     <id>http://www.xuxu1988.com/2016/01/13/robotium-android-studio/</id>
     <published>2016-01-13T14:33:21.000Z</published>
-    <updated>2016-03-24T12:40:04.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Android_Studio_中搭建_Robotium_环境">Android Studio 中搭建 Robotium 环境</h2><p>现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。</p>
+    <updated>2016-04-29T12:44:24.000Z</updated>
+    <content type="html"><![CDATA[<p>现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。</p>
 <p>在 AS 中搭建 Robotium 环境与 Eclipse 会有很大的区别，这里给出一个简单的例子供大家参考！</p>
 <ul>
 <li><p>新建一个简单的 Demo 应用，使用 AS 的默认创建的就好，默认应用的 MainActivity 界面上 TextView 的内容设置为<code>robotium test</code></p>
@@ -349,7 +349,7 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="Android_Studio_中搭建_Robotium_环境">Android Studio 中搭建 Robotium 环境</h2><p>现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。</p>
+    <![CDATA[<p>现在大部分的 Android 项目都从之前的 Eclipse 转移到了 Android Studio，所以在使用 Robotium 做自动化测试时，最好是也跟着转移到 AS中。</p>
 <p>在 AS 中搭建 Robotium 环境与 Eclipse 会有很大的区别，这里给出一个简单的例子供大家参考！</p>
 <ul>
 <li><p>新建一个简单的 Demo 应用，使用 AS 的默认创建的就好，默认应用的 MainActivity 界面上 TextView 的内容设置为<code>robotium test</code></p>
@@ -393,8 +393,8 @@
     <link href="http://www.xuxu1988.com/2015/12/23/2015-12-07-syn-git-project/"/>
     <id>http://www.xuxu1988.com/2015/12/23/2015-12-07-syn-git-project/</id>
     <published>2015-12-22T16:47:59.000Z</published>
-    <updated>2016-01-13T16:13:18.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="同步GitHub上已Fork的项目">同步GitHub上已Fork的项目</h2><p> 以本人在 GitHub 上 Fork 的项目（<a href="https://github.com/gb112211/A-Native-TesterHome" target="_blank" rel="external">A-Native-TesterHome</a>）为例：</p>
+    <updated>2016-04-29T12:43:00.000Z</updated>
+    <content type="html"><![CDATA[<p> 以本人在 GitHub 上 Fork 的项目（<a href="https://github.com/gb112211/A-Native-TesterHome" target="_blank" rel="external">A-Native-TesterHome</a>）为例：</p>
 <ul>
 <li><p>将 fork 的项目 clone 至本地</p>
 <p><code>git clone https://github.com/gb112211/A-Native-TesterHome.git</code></p>
@@ -411,7 +411,7 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="同步GitHub上已Fork的项目">同步GitHub上已Fork的项目</h2><p> 以本人在 GitHub 上 Fork 的项目（<a href="https://github.com/gb112211/A-Native-TesterHome" target]]>
+    <![CDATA[<p> 以本人在 GitHub 上 Fork 的项目（<a href="https://github.com/gb112211/A-Native-TesterHome" target="_blank" rel="external">A-Native-TesterHome</a>）]]>
     </summary>
     
       <category term="git" scheme="http://www.xuxu1988.com/tags/git/"/>
@@ -1098,8 +1098,8 @@
     <link href="http://www.xuxu1988.com/2015/05/13/2015-05-02-Android-Tree/"/>
     <id>http://www.xuxu1988.com/2015/05/13/2015-05-02-Android-Tree/</id>
     <published>2015-05-13T12:27:13.000Z</published>
-    <updated>2016-01-30T06:45:47.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Android测试技能树">Android测试技能树</h2><h3 id="Android_基础知识">Android 基础知识</h3><ul>
+    <updated>2016-04-29T12:42:33.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="Android_基础知识">Android 基础知识</h3><ul>
 <li>Android 的体系结构</li>
 <li>apk 的组成结构</li>
 <li>adb 命令的使用</li>
@@ -1169,7 +1169,7 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="Android测试技能树">Android测试技能树</h2><h3 id="Android_基础知识">Android 基础知识</h3><ul>
+    <![CDATA[<h3 id="Android_基础知识">Android 基础知识</h3><ul>
 <li>Android 的体系结构</li>
 <li>apk 的组成结构</li>
 <li>adb 命令的使用</li>
