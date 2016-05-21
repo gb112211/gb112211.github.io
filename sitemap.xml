@@ -3,6 +3,30 @@
 
     
   <url>
+    <loc>http://www.xuxu1988.com/2015/05/15/android-adb-commands/</loc>
+    <lastmod>2016-05-21T17:27:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android常用adb命令总结</title>
+        <pubTime>2015-05-15T11:27:13.000Z</pubTime>
+        
+        <tag>Android </tag>
+         
+        <tag>mobile </tag>
+         
+        <tag>测试基础 </tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xuxu1988.com/2016/04/30/gt-sm-test/</loc>
     <lastmod>2016-04-30T11:35:05.000Z</lastmod>
     <data>
@@ -285,30 +309,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xuxu1988.com/2015/05/15/android-adb-commands/</loc>
-    <lastmod>2016-01-29T15:13:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android常用adb命令总结</title>
-        <pubTime>2015-05-15T11:27:13.000Z</pubTime>
-        
-        <tag>Android </tag>
-         
-        <tag>mobile </tag>
-         
-        <tag>测试基础 </tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.xuxu1988.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
         </display>
     </data>
     </url>

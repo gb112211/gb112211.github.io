@@ -677,7 +677,7 @@
     <link href="http://www.xuxu1988.com/2015/05/15/android-adb-commands/"/>
     <id>http://www.xuxu1988.com/2015/05/15/android-adb-commands/</id>
     <published>2015-05-15T11:27:13.000Z</published>
-    <updated>2016-01-29T15:13:34.000Z</updated>
+    <updated>2016-05-21T17:27:15.000Z</updated>
     <content type="html"><![CDATA[<p>针对移动端 Android 的测试， adb 命令是很重要的一个点，必须将常用的 adb 命令熟记于心， 将会为 Android 测试带来很大的方便，其中很多命令将会用于自动化测试的脚本当中。 </p>
 <h3 id="Android_Debug_Bridge">Android Debug Bridge</h3><p><code>adb</code> 其实就是 <code>Android Debug Bridge</code>, Android 调试桥的缩写，adb 是一个 <em>C/S</em> 架构的命令行工具，主要由 3 部分组成：</p>
 <ul>
@@ -777,7 +777,7 @@
 <blockquote>
 <p>手机、PC处于相同的网络下，手机 root ，安装应用 adbWireless ，启动应用后点击界面中间的按钮：  </p>
 </blockquote>
-<p><img src="http://y.photo.qq.com/img?s=g9WfMLxeD&amp;l=y.jpg" alt="image"></p>
+<p><img src="http://i2.buimg.com/73b185a561f2c622.jpg" alt="image"></p>
 <blockquote>
 <p>接着运行 <code>adb connect 192.168.1.102</code> , 即可通过无线的方式连接手机，缺点是速度比较慢</p>
 </blockquote>
